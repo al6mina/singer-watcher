@@ -1,0 +1,115 @@
+//media  
+@media only screen and (min-width:1440px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width:960px)and (max-width:1439px) {
+  #wrapper {
+    width: 80%;
+  }
+  ul.nav {
+    width: 35%;
+  }
+  #podcast {
+    max-height: 560px;
+  }
+}
+
+@media only screen and (min-width:771px)and (max-width:960px) {
+  #wrapper {
+    width: 90%;
+  }
+  ul.nav {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width:481px)and (max-width:770px) {
+  #wrapper, #todo-btns, #main-artist, .artist-image {
+    width: 98%;
+    float: none;
+  }
+
+  #user-menu.aside-menu {
+    float: left;
+    margin-left: 1%;
+    width: 40%;
+  }
+
+  #podcast.main-content {
+    width: 55%;
+    margin-right: 1%;
+    max-height: 500px;
+    float: right;
+  }
+
+  ul.nav {
+    width: 55%;
+  }
+
+  .logo {
+    width: 25%;
+  }
+
+  #podcast {
+    max-height: 500px;
+    li {
+        width: 30%;
+    }
+}
+        
+	
+	}
+                                            // media for small dispalys
+@media only screen and (max-width:480px) {
+      body {
+        font-size: 12px;
+      }
+
+      #wrapper, #podcast.main-content, #user-menu.aside-menu, #artist-data, #getArtist, #todo-btns, #main-artist, #helper,  .artist-image {
+    width: 98%;
+    float: none;
+    margin: 0 auto;
+  }
+
+  #TopSongsList {
+    li {
+       a{padding-left: 2em; }
+     }
+   }
+
+    #podcast {
+      max-height: 15em;
+      overflow: auto;
+      li, .artist-image {
+          width: 35%;
+       }
+    }
+    #podcast.main-content {
+      max-height: 15em;
+    }
+
+    ul.nav {
+      width: 60%;
+      margin-right: 1em;
+    }
+
+    .logo {
+      width: 25%;
+      float: left;
+    }
+
+    #helper {
+      width: 100%;
+      float: none;
+      display: none;
+    }
+    #loading	{
+        width: 60%;
+        margin: auto
+        
+    }
+}
+	

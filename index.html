@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html>
+        <head>            
+            <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="css/main.min.css">	
+            <title>Singers Watcher</title>			
+        </head>
+        <body>
+           <div id="wrapper">
+               <header class="main-header">
+                   <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
+                   <ul class="nav">
+                       <li><a href="index.html" class="icon home"></a></li>
+                       <li><a href="#" class="icon help" id="help"></a>
+                           <div id="helper">                                            
+                            <p> Hello! We're glad to see you! You should allow your browser to get your location if you want to watch top of your country!   
+                               </p>
+                               <p>With our application you can search some <b>information about artists.</b> In the section of <b>Top-songs</b> you can also watch video, form list of favourite songs and <b>buy them at Amazon.</b> You can choose some style with button. Also we help you to <b>get video, channel or list of songs</b> from YouTube.</p>
+                           </div>   
+                       </li>
+                       <li><a href="#" class="icon style"></a>
+                           <div id="userStyle" >
+                               <label><input type = "radio" name="stylePage" checked> default</label>
+                               <label><input type = "radio" name="stylePage" > pink</label>
+                               <label><input type = "radio" name="stylePage"> black</label> 
+								<label><input type = "radio" name="stylePage">ukrainian</label> 
+                            </div>                       
+                       </li>
+                       
+                   </ul>                    
+                </header>
+               <main>
+			       <section id="podcast">                    
+                      <p>Hello! We're glad to see you! Let's us to show you the most popular singers in your county. You should allow your browser to get your location.                       </p>  
+                   <p id="loading"><img src="images/loading.gif" alt ="loading" ></p>
+                    </section>
+                   <section id="user-menu">
+                     <section id="artist-data"></section>               
+                      <form action="#" name="getSinger" id="getArtist">
+                          <input type="text" name="inputSinger" id="singerMain" placeholder="Write artist to search...">
+                          <span class="warning">You should write an artist</span>
+                          <button type="submit" id="search-singer" class="btn-primary">Choose a singer</button>
+                      </form>     
+                    </section>				   
+				   <section id="social">
+				   <hr>
+					<a href="https://www.facebook.com/"><span class="social icon fb"></span></a>
+                    <a href="https://twitter.com/"><span class="social  icon twit"></span></a>
+                    <a href="https://github.com/Hellen-Melania/singer-watcher"><span class="social icon github"></span></a>
+			       </section>                                      
+               </main>			   
+               <footer class="border-radius">
+                   <p>&copy; Albina and Hellen 2014</p>
+               </footer>
+           </div>
+            <script src="js/utils.js"></script>
+            <script src="js/main.js"></script>
+            <script src="js/functionalButtons.js"></script>
+        </body>
+    </html>

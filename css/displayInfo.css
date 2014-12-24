@@ -1,0 +1,181 @@
+@keyframes animationFrames {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animationFrames {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes animationFrames {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+#artist-data {
+  text-align: center;
+}
+
+#podcast {
+  position: relative;
+  margin: 1em 0;
+  padding: 0 1em;
+  max-height: 35em;
+  overflow-y: auto;
+}
+#podcast #countryTop, #podcast #podcastSimilar {
+  padding: 1%;
+  overflow: hidden;
+  text-align: left;
+}
+#podcast #countryTop li, #podcast #podcastSimilar li {
+  list-style: none;
+  background-color: #333333;
+  position: relative;
+  border-radius: 5px 5px 5px 5px;
+  margin: 1%;
+  max-width: 130px;
+  height: 6.5em;
+  display: inline-block;
+  overflow: hidden;
+}
+#podcast #countryTop li a, #podcast #podcastSimilar li a {
+  display: none;
+  top: 0;
+  left: 0;
+  background-color: #333333;
+  font-size: .9em;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  padding-top: .4em;
+  height: 7em;
+}
+#podcast #countryTop li:hover a, #podcast #podcastSimilar li:hover a {
+  display: block;
+}
+
+#social {
+  clear: both;
+  margin: 1em 0;
+  text-align: right;
+}
+#social a {
+  display: inline-block;
+  width: 5.5783333%;
+  min-width: 50px;
+  margin-top: 1em;
+}
+
+span.social {
+  display: block;
+  height: 50px;
+}
+
+span.social:hover {
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+.fb {
+  background-position: -207px -48px;
+}
+
+.twit {
+  background-position: -27px -173px;
+}
+
+.github {
+  background-position: -299px 0;
+}
+
+#main-artist {
+  width: 70%;
+  float: left;
+  text-align: center;
+}
+
+#todo-btns {
+  width: 30%;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+a.singer-name {
+  color: #c11e23;
+  font-weight: bold;
+}
+
+#user-menu.aside-menu {
+  width: 30%;
+  float: left;
+  margin-right: 0;
+  padding: 1%;
+  overflow: hidden;
+}
+
+#podcast.main-content {
+  width: 65%;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  float: left;
+  margin-right: 5%;
+  text-align: justify;
+  animation: animationFrames ease 3s;
+  -webkit-animation: animationFrames ease 3s;
+  -moz-animation: animationFrames ease 3s;
+  -ms-animation: animationFrames ease 3s;
+}
+
+.artist-image {
+  float: left;
+  margin: 1%;
+  margin-right: 3%;
+}
+
+#helper {
+  width: 50%;
+  text-align: left;
+  height: auto;
+  display: none;
+  color: #333333;
+  position: absolute;
+  z-index: 10;
+  right: 1%;
+  padding: 1em;
+  margin-top: 1em;
+  background-color: #f0efee;
+  border-radius: 5px 5px 5px 5px;
+  animation: animationFrames ease 2s;
+  -webkit-animation: animationFrames ease 2s;
+  -moz-animation: animationFrames ease 2s;
+  -ms-animation: animationFrames ease 2s;
+}

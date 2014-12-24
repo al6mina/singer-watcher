@@ -1,0 +1,14 @@
+img{
+    max-width: 70%;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.error-404 p {
+  color: red;
+  font: bold 2.5em Georgia, serif;
+  margin: 0;
+}
+
+
