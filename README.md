@@ -1,2 +1,2 @@
-Kremlovska and Terlecka project
+Kremlovska and Terlecka project for <epam> lab
 ==============
