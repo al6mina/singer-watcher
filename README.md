@@ -1,2 +1,2 @@
-singer-watcher
+Kremlovska and Terlecka project
 ==============
