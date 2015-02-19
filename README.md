@@ -1,2 +1,2 @@
-This is project for epam lab created by Albina Kremlovska and Galina Terlecka
+version 2.0
 ==============
