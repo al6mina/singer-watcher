@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         clean:{
             all:{
-               src: ['public/!.htaccess']
+               src: ['public/*']
             }
         },
         sass: {
