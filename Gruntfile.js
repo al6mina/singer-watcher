@@ -67,7 +67,6 @@ module.exports = function(grunt) {
 
     });
 
-    // Загрузка плагинов, установленных с помощью npm install
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -76,6 +75,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    // Задача по умолчанию
+
     grunt.registerTask('default', ['clean','copy', 'sass', 'jshint','concat','watch']);
 };
