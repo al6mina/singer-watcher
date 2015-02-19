@@ -43,24 +43,23 @@ module.exports = function(grunt) {
         copy: {
               main: {
                 files:[
-                    { expand: true, 
+                    {   expand: true, 
                         cwd: 'src/js/vendors/',
                         src:'*.*',
                         dest: 'public/js/vendors/',
                         filter: 'isFile'
                     },
-                    { expand: true, 
+                    {   expand: true, 
                         cwd: 'src/scss/vendors/',
                         src:'*.*',
                         dest: 'public/css/vendors/',
                         filter: 'isFile'
                     },
-                    {
-                    expand: true,
-                    cwd: 'src/templates/',
-                    src:'*.*',
-                    dest: 'public/templates/',
-                    filter: 'isFile'      
+                    {   expand: true,
+                        cwd: 'src/templates/',
+                        src:'*.*',
+                        dest: 'public/templates/',
+                        filter: 'isFile'      
                     },
                     {
                         expand: true, flatten: true, src: ['src/*.html'], dest: 'public/', filter: 'isFile'
@@ -71,7 +70,7 @@ module.exports = function(grunt) {
         concat: {
             dist: {
               src: ['src/js/utils.js', 'src/js/f1.js','src/js/f2.js'],
-              dest: 'src/js/output.js'
+              dest: 'src/js/screen.js'
             },
             
         },
@@ -82,7 +81,7 @@ module.exports = function(grunt) {
          uglify:{
             main:{
                 files:{
-                    'public/js/output.min.js':['src/js/output.js']
+                    'public/js/screen.min.js':['src/js/screen.js']
                 }
             }
          }
