@@ -1,4 +1,13 @@
 module.exports = function(grunt) {
+
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
     grunt.initConfig({
         clean:{
             all:{
@@ -25,6 +34,10 @@ module.exports = function(grunt) {
             sass:{
                 files:['src/scss/*.scss'],
                 tasks :['sass']
+            },
+            js:{
+                files:['src/js/*.js'],
+                tasks:['jshint','uglify']
             }
         },
         copy: {
@@ -34,6 +47,12 @@ module.exports = function(grunt) {
                         cwd: 'src/js/vendors/',
                         src:'*.*',
                         dest: 'public/js/vendors/',
+                        filter: 'isFile'
+                    },
+                    { expand: true, 
+                        cwd: 'src/scss/vendors/',
+                        src:'*.*',
+                        dest: 'public/css/vendors/',
                         filter: 'isFile'
                     },
                     {
@@ -51,29 +70,26 @@ module.exports = function(grunt) {
         },
         concat: {
             dist: {
-              src: ['src/js/*.js'],
+              src: ['src/js/utils.js', 'src/js/f1.js','src/js/f2.js'],
               dest: 'src/js/output.js'
             },
-            min:{
-                files:{
-                    'public/js/output.min.js':['src/js/main.min.js']
-                }
-            }
+            
         },
        jshint: {
             files: ['src/js/*.js'],
             
          },
+         uglify:{
+            main:{
+                files:{
+                    'public/js/output.min.js':['src/js/output.js']
+                }
+            }
+         }
 
     });
 
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    
 
-    grunt.registerTask('default', ['clean','copy', 'sass', 'jshint','concat','watch']);
+    grunt.registerTask('default', ['clean','copy', 'sass', 'jshint','concat','uglify','watch']);
 };

@@ -1,3 +1,4 @@
+//third
 //---------- page 404
 function ifNotConnection() {
   var win404 = window.open('404/404.html', '_self');
