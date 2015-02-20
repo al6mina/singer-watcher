@@ -7,32 +7,38 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-spritesmith');
 
     grunt.initConfig({
-        clean:{
+        clean: {
             all:{
                src: ['public/*']
             }
         },
+        sprite:{
+             all: {
+                src: 'src/images/png/*.png',
+                dest: 'src/images/spritesheet.png',
+                destCss: 'src/images/sprites.css'
+          }
+        },
         sass: {
             dist: {
-                  files: {
-                    'src/css/screen.css': 'src/css/screen.scss',
-                    }
-            },
-            
-            min :{
-                files:{
-                    'public/css/screen.min.css':['src/css/screen.css']
+                options: {
+                    style: 'compressed',
+                    sourcemap: 'none'
+                },
+                files : {
+                    'src/styles/main.css':'src/styles/main.scss'
                 }
             }
-        },            
+        },         
         watch:{
             options:{
                 livereload:true
             },
             sass:{
-                files:['src/css/*.scss'],
+                files:['src/styles/*.scss'],
                 tasks :['sass']
             },
             js:{
@@ -50,10 +56,18 @@ module.exports = function(grunt) {
                         filter: 'isFile'
                     },
                     {   expand: true, 
-                        cwd: 'src/scss/vendors/',
-                        src:'*.*',
-                        dest: 'public/css/vendors/',
+                        cwd: 'src/styles/vendors/css/',
+                        src: '*.*',
+                        dest: 'public/styles/vendors/css/',
                         filter: 'isFile'
+                        
+                    },
+                    {   expand: true, 
+                        cwd: 'src/styles/vendors/fonts/',
+                        src: '*.*',
+                        dest: 'public/styles/vendors/fonts/',
+                        filter: 'isFile'
+                        
                     },
                     {   expand: true,
                         cwd: 'src/templates/',
@@ -61,8 +75,17 @@ module.exports = function(grunt) {
                         dest: 'public/templates/',
                         filter: 'isFile'      
                     },
+                     {  expand: true,
+                        cwd: 'src/images/',
+                        src:'*.*',
+                        dest: 'public/images/',
+                        filter: 'isFile'      
+                    },
                     {
                         expand: true, flatten: true, src: ['src/*.html'], dest: 'public/', filter: 'isFile'
+                    },
+                     {
+                        expand: true, flatten: true, src: ['src/styles/main.css'], dest: 'public/styles/', filter: 'isFile'
                     },
                 ],               
              },       
@@ -90,5 +113,5 @@ module.exports = function(grunt) {
 
     
 
-    grunt.registerTask('default', ['clean','copy', 'sass', 'jshint','concat','uglify','watch']);
+    grunt.registerTask('default', ['clean', 'sprite', 'sass', 'jshint','concat','uglify','copy','watch']);
 };

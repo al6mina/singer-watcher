@@ -3,7 +3,7 @@
 //@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
 
 //}
-@media (max-width:444px) {
+@media (max-width: $xssmall) {
 	.img-responsive.logo {
 			max-width: 100%;
 	}
@@ -17,11 +17,11 @@
 		}
 	}	
 }
-@media (max-width: 1119px) and (min-width:992px) {
+@media (max-width: $largest) and (min-width: $medium) {
 	
 	
 }
-@media (min-width: 1200px) {
+@media (min-width: $largest) {
 	.container-fluid {
 		width: 90%;
 	}	
