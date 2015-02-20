@@ -17,13 +17,13 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                   files: {
-                    'src/scss/screen.css': 'src/scss/screen.scss',
+                    'src/css/screen.css': 'src/css/screen.scss',
                     }
             },
             
             min :{
                 files:{
-                    'public/css/screen.min.css':['src/scss/screen.css']
+                    'public/css/screen.min.css':['src/css/screen.css']
                 }
             }
         },            
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
                 livereload:true
             },
             sass:{
-                files:['src/scss/*.scss'],
+                files:['src/css/*.scss'],
                 tasks :['sass']
             },
             js:{
