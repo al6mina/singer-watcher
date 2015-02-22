@@ -16,7 +16,11 @@ var main = document.getElementsByTagName('main')[0];
 var social = document.getElementById('social');
 var body = document.getElementsByTagName('body')[0];
 var topTenTracksResponse = {};
+<<<<<<< HEAD
 var styleBtn = document.getElementById('userStyle');
+=======
+var styleBtn = document.getElementById('userStyle');
+>>>>>>> b8613c901595c36cd43c099bd578c77d7635764b
 
 //second
 //listener for orientation change
@@ -28,7 +32,11 @@ function doOnOrientationChange() {
    main.insertBefore(podcastSection, social);
    return;   
    //jfjfjfj    
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b8613c901595c36cd43c099bd578c77d7635764b
 //third
 //---------- page 404
 function ifNotConnection() {
