@@ -1,0 +1,125 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$facebook-name: 'facebook';
+$facebook-x: 126px;
+$facebook-y: 67px;
+$facebook-offset-x: -126px;
+$facebook-offset-y: -67px;
+$facebook-width: 45px;
+$facebook-height: 45px;
+$facebook-total-width: 226px;
+$facebook-total-height: 195px;
+$facebook-image: '../images/sprite.png';
+$facebook: 126px 67px -126px -67px 45px 45px 226px 195px '../images/sprite.png' 'facebook';
+$github-name: 'github';
+$github-x: 171px;
+$github-y: 67px;
+$github-offset-x: -171px;
+$github-offset-y: -67px;
+$github-width: 45px;
+$github-height: 45px;
+$github-total-width: 226px;
+$github-total-height: 195px;
+$github-image: '../images/sprite.png';
+$github: 171px 67px -171px -67px 45px 45px 226px 195px '../images/sprite.png' 'github';
+$microphone-name: 'microphone';
+$microphone-x: 0px;
+$microphone-y: 0px;
+$microphone-offset-x: 0px;
+$microphone-offset-y: 0px;
+$microphone-width: 126px;
+$microphone-height: 150px;
+$microphone-total-width: 226px;
+$microphone-total-height: 195px;
+$microphone-image: '../images/sprite.png';
+$microphone: 0px 0px 0px 0px 126px 150px 226px 195px '../images/sprite.png' 'microphone';
+$twitter-name: 'twitter';
+$twitter-x: 0px;
+$twitter-y: 150px;
+$twitter-offset-x: 0px;
+$twitter-offset-y: -150px;
+$twitter-width: 45px;
+$twitter-height: 45px;
+$twitter-total-width: 226px;
+$twitter-total-height: 195px;
+$twitter-image: '../images/sprite.png';
+$twitter: 0px 150px 0px -150px 45px 45px 226px 195px '../images/sprite.png' 'twitter';
+$yotube-name: 'yotube';
+$yotube-x: 126px;
+$yotube-y: 0px;
+$yotube-offset-x: -126px;
+$yotube-offset-y: 0px;
+$yotube-width: 100px;
+$yotube-height: 67px;
+$yotube-total-width: 226px;
+$yotube-total-height: 195px;
+$yotube-image: '../images/sprite.png';
+$yotube: 126px 0px -126px 0px 100px 67px 226px 195px '../images/sprite.png' 'yotube';
+$scss-width: 226px;
+$scss-height: 195px;
+$scss-image: '../images/sprite.png';
+$scss-sprites: $facebook $github $microphone $twitter $yotube;
+$scss: 226px 195px '../images/sprite.png' $scss-sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
