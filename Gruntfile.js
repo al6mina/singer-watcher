@@ -19,7 +19,7 @@ grunt.initConfig({
     all: {
       src: 'src/images/sprite/*.png',
       dest: 'src/images/sprite.png',
-      destCss: 'src/styles/sprite_.scss',
+      destCss: 'src/styles/_sprite.scss',
       cssSpritesheetName: 'scss'
     }
   },

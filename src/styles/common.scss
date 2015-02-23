@@ -1,10 +1,18 @@
-.img-responsive.logo {
-  max-width: 8em;
-}
 body {
   font: $font-main;
 }
 main {
   padding: 1em;
   position: relative;
+}
+
+@media (max-width: $xssmall) {
+  .img-responsive.logo {
+    max-width: 100%;
+  }  
+}
+@media (min-width: $largest) {
+  .container-fluid {
+    width: 90%;
+  }
 }

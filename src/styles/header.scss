@@ -5,29 +5,31 @@ header.row {
   .right {
     text-align: right;
   } 
-  ul.nav-head {
+  .img-responsive.logo {
+    max-width: 8em;
+  }
+  .nav-head {
     li {
       display: inline-block;
-      margin-left: 2.6323%;        
+      margin-left: 2.6%;        
       a {
         font-size: 3em;
         display: block;
         color: $basic-color;
         text-decoration: none;
-        :hover {
+        &:hover {
           color: $basic-color + 100;
-
          }
       }
     }
     .glyphicon {
       display: inline;
     }
-    ul.dropdown-menu {
-      margin-right: 3%;
-      padding: 1em;
-      min-width: 10em;
+    .dropdown-menu {
       left: -70px;
+      margin-right: 3%;
+      min-width: 10em;
+      padding: 1em;      
       li{
         display: block;
       }
@@ -35,4 +37,20 @@ header.row {
   }
 } 
 
-
+@media (max-width: $xssmall) {
+  header.row {
+    .img-responsive.logo {
+      max-width: 150%;
+    }
+    .nav-head {
+      li {
+        a {
+        font-size: 1.7em;
+        }
+      }
+      .dropdown-menu {
+       left: -100px;
+      }
+    }
+  }  
+}
