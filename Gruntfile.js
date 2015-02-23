@@ -17,9 +17,9 @@ module.exports = function(grunt) {
         },
         sprite:{
              all: {
-                src: 'src/images/png/*.png',
-                dest: 'src/images/spritesheet.png',
-                destCss: 'src/images/sprites.css'
+                src: 'src/images/sprite/*.png',
+                dest: 'src/images/sprite.png',
+                destCss: 'src/images/sprite.css'
           }
         },
         sass: {
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
                     },
                      {  expand: true,
                         cwd: 'src/images/',
-                        src:'*.*',
+                        src:'*.png',
                         dest: 'public/images/',
                         filter: 'isFile'      
                     },
