@@ -1,7 +1,7 @@
-header {
+header.row {
   background-color: $headers-color;
   padding: 1em;
-  @include vendor (border-radius, (10px, 10px, 0, 0));
+  border-radius: $border-radius $border-radius 0 0;
   .right {
     text-align: right;
   }   
