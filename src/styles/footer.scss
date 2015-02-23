@@ -20,18 +20,18 @@ footer {
       opacity: 0.2;
   }
   span.social {
-    background-image: url('../images/sprite.png');
+    background-image: url($facebook-image);
     display: block;
-    height: 45px;      
+    height: $facebook-height;      
   }
   .fb {
-    background-position: -126px -67px;
+    background-position: $facebook-offset-x $facebook-offset-y;
   }
   .twit {
-    background-position: 0px -150px;
+    background-position: $twitter-offset-x $twitter-offset-y;
   }
   .github {
-    background-position: -171px -67px;
+    background-position: $github-offset-x $github-offset-y;
   }
 }
 
