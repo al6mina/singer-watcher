@@ -6,11 +6,6 @@ main {
   position: relative;
 }
 
-@media (max-width: $xssmall) {
-  .img-responsive.logo {
-    max-width: 100%;
-  }  
-}
 @media (min-width: $largest) {
   .container-fluid {
     width: 90%;
