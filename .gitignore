@@ -1,4 +1,4 @@
 node_modules
 .sass-cache
 public
-src/images/sprite.png
+sprite.png
