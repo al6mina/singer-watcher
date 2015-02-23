@@ -77,8 +77,7 @@ grunt.initConfig({
         { expand: true,
           cwd: 'src/images/',
           src:'*.png',
-          dest: 'public/images/',
-          filter: 'isFile'      
+          dest: 'public/images/'          
         },
         {
           expand: true, flatten: true, src: ['src/*.html'], dest: 'public/', filter: 'isFile'
