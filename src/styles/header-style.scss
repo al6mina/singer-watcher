@@ -1,39 +1,38 @@
-header{
-    background-color:$headers-color;
-    padding:1em;
-    @include vendor(border-radius, (10px, 10px, 0, 0));
-    .right {
-        text-align: right;
-    }
-   
+header {
+  background-color: $headers-color;
+  padding: 1em;
+  @include vendor (border-radius, (10px, 10px, 0, 0));
+  .right {
+    text-align: right;
+  }   
 }
 ul.nav-head {
-    li {
-        display: inline-block;
-        margin-left: 2.6323%;        
-        a {
-            font-size: 3em;
-            display: block;
-            color: $basic-color;
-            :hover {
-                color: $basic-color + 100;
-             }
-        }
+  li {
+    display: inline-block;
+    margin-left: 2.6323%;        
+    a {
+      font-size: 3em;
+      display: block;
+      color: $basic-color;
+      :hover {
+        color: $basic-color + 100;
+       }
     }
-    .glyphicon {
-        dispaly:inline;
+  }
+  .glyphicon {
+    dispaly: inline;
+  }
+  ul.dropdown-menu {
+    margin-right: 3%;
+    padding: 1em;
+    min-width: 10em;
+    left: -70px;
+    li{
+      display: block;
     }
-     ul.dropdown-menu {
-            margin-right: 3%;
-            padding: 1em;
-            min-width: 10em;
-            left: -70px;
-            li{
-                display: block;
-            }
-        }  
+  }  
 }
 main {
-    padding: 1em;
-    position: relative;
+  padding: 1em;
+  position: relative;
 }

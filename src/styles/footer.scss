@@ -1,43 +1,37 @@
 footer {
-    background-color: $basic-color;
-    padding-top: 1em;
-    @include vendor (border-radius, (0, 0, 10px, 10px));
-    p.copyright {
-        color: $basic-inverse;
-        font-size: 0.8em;
-    }  
-
+  background-color: $basic-color;
+  padding-top: 1em;
+  @include vendor (border-radius, (0, 0, 10px, 10px));
+  p.copyright {
+    color: $basic-inverse;
+    font-size: 0.8em;
+  } 
 }
 #social {
-    text-align: right;
-    a {
-        display: inline-block;
-        width: 12.5783333%;
-        max-width: 45px;
-        min-width: 45px;
-        margin-right: 2.34112%;
-    }
-    .disabled {
-        opacity: 0.2;
-    }
-    span.social {
-<<<<<<< HEAD
-=======
-
->>>>>>> f63ce069dbcc77acf39c1a7d42a6b6b074fec86a
-        background-image: url('../images/sprite.png');
-        display: block;
-        height: 45px;
-        
-    }
-    .fb {
-         background-position: -126px -67px;
-    }
-    .twit {
-        background-position: 0px -150px;
-    }
-    .github {
-        background-position: -171px -67px;
-    }
+  text-align: right;
+  a {
+    display: inline-block;
+    width: 12.5783333%;
+    max-width: 45px;
+    min-width: 45px;
+    margin-right: 2.34112%;
+  }
+  .disabled {
+      opacity: 0.2;
+  }
+  span.social {
+    background-image: url('../images/sprite.png');
+    display: block;
+    height: 45px;      
+  }
+  .fb {
+    background-position: -126px -67px;
+  }
+  .twit {
+    background-position: 0px -150px;
+  }
+  .github {
+    background-position: -171px -67px;
+  }
 }
 
