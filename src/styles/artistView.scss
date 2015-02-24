@@ -1,0 +1,31 @@
+.podcast {
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+  .thumbnail {
+    a {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 10% 20%;
+      text-decoration: none;
+      background-color: $basic-inverse;
+      color: $basic-color;
+     }
+     &:hover {
+        a {
+          display: inline;
+        }
+     }
+  }
+}
+.podcast-header {
+  text-align: justify;
+}
+
+@media (max-width: $xssmall) {
+  .podcast-header {
+    font-size: 1em;
+  }
+}
