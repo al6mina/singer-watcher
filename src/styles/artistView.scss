@@ -3,7 +3,7 @@
   padding: 0;
   overflow: hidden;
   .thumbnail {
-    position: relative;
+    position: relative;    
       a {
       display: none;
       position: absolute;
@@ -31,20 +31,43 @@
   text-align: justify;
 }
 
+@media (min-width: $xssmall)and (max-width:$small) {
+  .podcast {
+    li {
+      display: block;
+      width: 33%;
+      float: left;
+    }
+  } 
+}
 @media (max-width: $xssmall) {
   .podcast-header {
     font-size: 1em;
   }
  .podcast {
-    .thumbnail {
-        a {
-          display: inline;
-          font-size: .7em
+    li {
+      display: block;
+      .thumbnail {
+        overflow: hidden;
+        img {
+          margin: 0;
+          width: 80px;
+          float: left;
+          position: relative;
+          vertical-align: middle;
         }
-     }
-  }
+        a {
+          display: block;
+          float: left;
+          width :50%;
+          position: relative;
+          background: none;
+          border: none;
+        }
+      }    
+    }
+  } 
 }
-
 @media (min-width: $medium) and (max-width: $largest) {
   .thumbnail {
     max-width: 130px;
