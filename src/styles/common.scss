@@ -1,0 +1,16 @@
+* {
+	box-sizing: border-box;
+}
+body {
+  font: $font-main;
+}
+main {
+  padding: 1em;
+  position: relative;
+}
+
+@media (min-width: $largest) {
+  .container-fluid {
+    width: 90%;
+  }
+}
