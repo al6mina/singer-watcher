@@ -17,34 +17,17 @@ var social = document.getElementById('social');
 var body = document.getElementsByTagName('body')[0];
 var topTenTracksResponse = {};
 var styleBtn = document.getElementById('userStyle');
+ var sw = angular.module("swApp", []);
 
-//second
-//listener for orientation change
-function doOnOrientationChange() {    
-  if ((window.orientation === 0) && (window.innerWidth <= 480)) {
-    userMenu.insertBefore(podcastSection, form);
-    return;
-   }    
-   main.insertBefore(podcastSection, social);
-   return;   
-   //jfjfjfj    
-}
-//third
-//---------- page 404
-function ifNotConnection() {
-  var win404 = window.open('404/404.html', '_self');
-  return;
-}
 
-//-------------addeventListener for all browsers
-function addListener(elem, evType, fn) {
-    if (window.attachEvent === true) {
-      elem.addEventListener(evType, fn, false);
-      return fn;
-    }
-    var newFn = function () {
-      fn.call(elem);
-    };
-      elem.attachEvent('on' + evType, newFn);
-    return newFn;
-  }
+sw.controller ("ArtistCtrl", ['$scope', function($scope) {
+	$scope.artists = [
+		{src: 'images/artist.jpg', name: "ARTIST1"},
+		{src: 'images/artist.jpg', name: "ARTIST2"},
+		{src: 'images/artist.jpg', name: "ARTIST3"},
+		{src: 'images/artist.jpg', name: "ARTIST4"},
+		{src: 'images/artist.jpg', name: "ARTIST5"},
+		{src: 'images/artist.jpg', name: "ARTIST6"},
+		{src: 'images/artist.jpg', name: "ARTIST7"}
+	];	
+}]);

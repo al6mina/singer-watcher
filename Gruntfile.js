@@ -76,7 +76,7 @@ grunt.initConfig({
         },
         { expand: true,
           cwd: 'src/images/',
-          src:'*.png',
+          src:'*.*',
           dest: 'public/images/'          
         },
         {
@@ -90,7 +90,7 @@ grunt.initConfig({
   },
   concat: {
     dist: {
-      src: ['src/js/utils.js', 'src/js/f1.js','src/js/f2.js'],
+      src: ['src/js/utils.js', 'src/js/app/swApp.js','src/js/app/artistCtrl.js'],
       dest: 'src/js/screen.js'
     }        
   },
@@ -100,7 +100,7 @@ grunt.initConfig({
   uglify:{
     main:{
       files:{
-        'public/js/screen.min.js':['src/js/screen.js']
+        'public/js/screen.js':['src/js/screen.js']
       }
     }
   }
