@@ -8,5 +8,10 @@ sw.controller ("ArtistCtrl", ['$scope', function($scope) {
 		{src: 'images/artist.jpg', name: "ARTIST5"},
 		{src: 'images/artist.jpg', name: "ARTIST6"},
 		{src: 'images/artist.jpg', name: "ARTIST7"}
-	];	
+	];
+	$scope.al = function (text) {
+		alert (text);
+	};
+	
 }]);
+

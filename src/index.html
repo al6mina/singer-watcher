@@ -55,7 +55,7 @@
 					<h3 class="podcast-header"> Here you have a list of the most popular singers of your country!</h3>
           <ul class="podcast">
             <li class="col-lg-2 col-md-2 col-sm-3" ng-repeat="artist in artists">
-            	<div class="thumbnail"><img ng-src ="{{artist.src}}" alt='{{artist.name}}'><a href="">{{artist.name}}</a></div>
+            	<div class="thumbnail"><img ng-src ="{{artist.src}}" alt="{{artist.name}}"><a ng-href="#/{{artist.name}}" ng-click ="">{{artist.name}}</a></div>
             </li>
           </ul>
         </div>

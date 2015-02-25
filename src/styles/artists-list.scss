@@ -20,6 +20,13 @@
       font-size: 1em;
       word-wrap: break-word;
      }
+     a.songs {
+      display: block;
+      width: 50%;
+      margin-left: 30%;
+      background: none;
+      border: none;
+     }
      &:hover {
         a {
           display: inline;
@@ -27,6 +34,7 @@
      }
   }
 }
+
 .podcast-header {
   text-align: justify;
 }
@@ -69,7 +77,11 @@
   } 
 }
 @media (min-width: $medium) and (max-width: $largest) {
-  .thumbnail {
-    max-width: 130px;
+  .podcast {
+    li {
+      .thumbnail {
+        max-width: 130px;
+      }
+    }
   }
 }

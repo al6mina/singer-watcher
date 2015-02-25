@@ -43,7 +43,7 @@ grunt.initConfig({
       tasks :['sass']
     },
     js:{
-      files:['src/js/*.js'],
+      files:['src/js/*.js', 'src/js/app/*.js'],
       tasks:['jshint','uglify']
     }
   },
