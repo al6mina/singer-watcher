@@ -4,6 +4,40 @@
 body {
   font: $font-main;
 }
+
+
+// set user styles!! 
+.pink {
+    font-family:'Monotype Corsiva', monotype;
+    font-size: 16px;
+    color:#777;
+    main{
+			background: url('../images/pink-bg.png') no-repeat 100% 100%;
+    }
+		header.row, footer{			
+			background-color:pink;
+			color:#aaa;
+
+    }
+}
+
+.black-edition {
+    font-family:'Franklin Gothic Medium', 'Franklin', monotype;
+    main, header.row, footer {
+        color:$form-bg;
+        background: #777;
+        .dropdown-menu {
+          li {
+            color: #777;
+          }
+        }
+    }
+    main {			
+			@include vendor (box-shadow, inset 1em $form-bg);
+    }
+}
+
+
 main {
   padding: 1em;
   position: relative;

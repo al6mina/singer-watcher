@@ -8,6 +8,7 @@ grunt.loadNpmTasks('grunt-contrib-sass');
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-spritesmith');
+grunt.loadNpmTasks('grunt-contrib-connect');
 
 grunt.initConfig({
   clean: {
@@ -44,7 +45,7 @@ grunt.initConfig({
     },
     js:{
       files:['src/js/*.js', 'src/js/app/*.js'],
-      tasks:['jshint','uglify']
+      tasks:['jshint','concat','uglify']
     }
   },
   copy: {
@@ -90,17 +91,27 @@ grunt.initConfig({
   },
   concat: {
     dist: {
-      src: ['src/js/utils.js', 'src/js/app/swApp.js','src/js/app/artistCtrl.js'],
+      src: ['src/js/utils.js','src/js/swApp.js','src/js/showBioCtrl.js'],
       dest: 'src/js/screen.js'
     }        
   },
   jshint: {
       files: ['src/js/*.js']        
   },
-  uglify:{
-    main:{
+  uglify: {
+    main: {
       files:{
         'public/js/screen.js':['src/js/screen.js']
+      }
+    }
+  },
+  connect: {
+    server: {
+      options: {
+        port: 8000,
+        keepalive: true,
+        hostname: 'localhost',
+        base: 'src/'       
       }
     }
   }

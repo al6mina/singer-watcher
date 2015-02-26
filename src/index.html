@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="swApp">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
 				</div>
 				<div class="col-lg-3 col-lg-offset-7 col-md-5 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-8 right">
 					<ul class="nav-head">
-						<li><a href=""><i class="glyphicon glyphicon-home"></i></a></li>
+						<li><a ng-href="#home"><i class="glyphicon glyphicon-home"></i></a></li>
 						<li><a href=""><i class="glyphicon glyphicon-question-sign"></i></a></li>
 						<li class="dropdown">
 							<a href="" class="dropdown-toggle"  id="dropdownMenu1" data-toggle="dropdown">
@@ -24,17 +24,17 @@
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 	    						<li role="presentation">
 	    							<label>
-		    							<input type ="radio" name="stylePage" role="menuitem" tabindex="-1" checked> default
+		    							<input type ="radio" value ="def" name="stylePage" role="menuitem" tabindex="-1" checked> default
 		    						</label>
 		    						</li>
 	    						<li role="presentation">
 		    						<label>
-		    							<input type ="radio" name="stylePage" role="menuitem" tabindex="-1"> pink
+		    							<input type ="radio" value ="pink" name="stylePage" role="menuitem" tabindex="-1"> Pink
 		    						</label>
 		    					</li>
 		    					<li role="presentation">
 		    						<label>
-	    							<input type ="radio" name="stylePage" role="menuitem" tabindex="-1"> UA
+	    							<input type ="radio" value="black-edition" name="stylePage" role="menuitem" tabindex="-1"> Black
 	    							</label>
 	    						</li>    					     
 	  						</ul>
@@ -50,17 +50,9 @@
 	    		</div> 
 	    	</div>
 			</header>
-			<main class ="row" ng-app = "swApp">
-				<div id="podcast" ng-controller="ArtistCtrl">
-					<h3 class="podcast-header"> Here you have a list of the most popular singers of your country!</h3>
-          <ul class="podcast">
-            <li class="col-lg-2 col-md-2 col-sm-3" ng-repeat="artist in artists">
-            	<div class="thumbnail"><img ng-src ="{{artist.src}}" alt="{{artist.name}}"><a ng-href="#/{{artist.name}}" ng-click ="">{{artist.name}}</a></div>
-            </li>
-          </ul>
-        </div>
-        <div id="userDo" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 -col-xs-12">
-        </div>					
+			<main class ="row" ng-controller="artists4CountryCtrl">
+				<div ng-view>
+      	</div>       					
 			</main>
 			<footer class="row">
 				<p class="copyright col-lg-2 ol-md-2 col-sm-4 col-xs-12">&copy; Albina Kremlovska 2015</p>
@@ -73,7 +65,8 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/vendors/bootstrap.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<script src="https://code.angularjs.org/1.2.22/angular.js"></script>
+  	<script src="https://code.angularjs.org/1.2.20/angular-route.js"></script>
 		<script src="js/screen.js"></script>
 	</body>
 </html>
