@@ -8,6 +8,7 @@
 	}
 	a {
 		display: block;
+		margin: .5em;
 	}
 }
 .artist-btn {
@@ -43,12 +44,21 @@
 }
 
 @media (min-width: $xssmall) and (max-width: $small) {
-	.artist-main, .artist-btn {
+	.artist-main {
 		width: 45%;
 		float: left;
+		a {
+			max-width: 70%;
+			margin: 1em auto;
+		}
+		img {
+			max-width: 70%;
+		}
 	}
 	.artist-btn {
 		margin-left: 5%;
+		width: 45%;
+		float: left;
 		a {
 			display: block;
 			margin-top: 1em;
@@ -69,7 +79,7 @@
 		}
 		a {
 			width: 100%;
-			margin: auto;
+			margin: .5em;
 		}
 	}
 	.artist-btn {
