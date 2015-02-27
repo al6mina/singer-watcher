@@ -3,7 +3,9 @@
   padding: 0;
   overflow: hidden;
   .thumbnail {
-    position: relative;    
+    position: relative;
+    height: 170px; 
+    overflow: hidden; 
       a {
       display: none;
       position: absolute;
@@ -42,9 +44,14 @@
 @media (min-width: $xssmall)and (max-width:$small) {
   .podcast {
     li {
-      display: block;
+      display: inline-block;
       width: 33%;
-      float: left;
+      .thumbnail {
+        max-height: 147px;
+        margin-bottom: 1em;
+        overflow: hidden;
+
+      }
     }
   } 
 }
@@ -57,12 +64,14 @@
       display: block;
       .thumbnail {
         overflow: hidden;
+        max-height: 100px;
         img {
-          margin: 0;
-          width: 80px;
+          margin: 0;          
+          width:100px;
           float: left;
           position: relative;
           vertical-align: middle;
+
         }
         a {
           display: block;
@@ -76,11 +85,15 @@
     }
   } 
 }
-@media (min-width: $medium) and (max-width: $largest) {
+@media (min-width: $medium) {
   .podcast {
     li {
+      ;
       .thumbnail {
-        max-width: 130px;
+        img {
+          max-height: 176px;
+          max-width: 100%;
+        }
       }
     }
   }

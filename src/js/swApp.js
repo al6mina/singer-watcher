@@ -22,16 +22,13 @@ swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) {
  ]);
  
   
- swApp.controller ('artists4CountryCtrl',['$scope', function ($scope) {
-  $scope.artists = [
-    {src: 'images/artist.jpg', name: "vasya"},
-    {src: 'images/artist.jpg', name: "petja"},
-    {src: 'images/artist.jpg', name: "ARTIST3with VeryLongName"},
-    {src: 'images/artist.jpg', name: "ARTIST4"},
-    {src: 'images/artist.jpg', name: "ARTIST5"},
-    {src: 'images/artist.jpg', name: "ARTIST6"},
-    {src: 'images/artist.jpg', name: "Іво Бобул"}
-  ];
+ swApp.controller ('artists4CountryCtrl',['$scope','$http', function ($scope, $http) {
+  var url = 'http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=Ukraine&api_key=a1b827bb5962ea81025679fd8869f5ed&format=json';
+
+   $http.get (url)
+        .success (function (data) {
+          $scope.artists = data.topartists.artist;
+        });  
 }]);
 
 
