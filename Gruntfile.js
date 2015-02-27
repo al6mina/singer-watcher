@@ -13,7 +13,7 @@ grunt.loadNpmTasks('grunt-contrib-connect');
 grunt.initConfig({
   clean: {
     all:{
-       src: ['public/*']
+       src: ['public/*','src/js/screen.js']
     }
   },
   sprite:{
@@ -70,9 +70,9 @@ grunt.initConfig({
           filter: 'isFile'            
         },
         { expand: true,
-          cwd: 'src/templates/',
+          cwd: 'src/js/templates/',
           src:'*.*',
-          dest: 'public/templates/',
+          dest: 'public/js/templates/',
           filter: 'isFile'      
         },
         { expand: true,
@@ -96,7 +96,7 @@ grunt.initConfig({
     }        
   },
   jshint: {
-      files: ['src/js/*.js']        
+      files: ['src/js/*.js', 'Gruntfile.js']        
   },
   uglify: {
     main: {

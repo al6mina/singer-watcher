@@ -1,7 +1,6 @@
 var swApp = angular.module('swApp',['ngRoute']);
 
-swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) {
- 
+swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) { 
  	$routeProvider
  	.when ('/', {
     templateUrl: 'js/templates/artists4Country.html',
@@ -23,7 +22,7 @@ swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) {
  ]);
  
   
- swApp.controller ('artists4CountryCtrl', function ($scope) {
+ swApp.controller ('artists4CountryCtrl',['$scope', function ($scope) {
   $scope.artists = [
     {src: 'images/artist.jpg', name: "vasya"},
     {src: 'images/artist.jpg', name: "petja"},
@@ -33,7 +32,7 @@ swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) {
     {src: 'images/artist.jpg', name: "ARTIST6"},
     {src: 'images/artist.jpg', name: "Іво Бобул"}
   ];
-});
+}]);
 
 
  
