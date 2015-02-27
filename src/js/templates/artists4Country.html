@@ -1,8 +1,13 @@
 <div id="podcast">
 	<h3 class="podcast-header"> Here you have a list of the most popular singers of your country!</h3>
   <ul class="podcast">
-    <li class="col-lg-2 col-md-2 col-sm-3" ng-repeat="artist in artists">
-    	<div class="thumbnail"><img ng-src ="{{artist.image[3]['#text']}}" alt="{{artist.name}}"><a ng-href="#/{{artist.name}}">{{artist.name}}</a></div>
+    <li class="col-lg-2 col-md-3 col-sm-4" ng-repeat="artist in artists">
+    	<div class="thumbnail" >
+    		<a ng-href="#/{{artist.name}}"> 
+    			<img ng-src ="{{artist.image[3]['#text']}}" alt="{{artist.name}}">
+    			<span>{{artist.name}}</span>
+    		</a>
+    	</div>
     </li>
   </ul>
 </div>

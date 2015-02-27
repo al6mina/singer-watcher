@@ -1,0 +1,112 @@
+
+.artist-main {
+	text-align: center;
+	margin-bottom: 1em;
+	img {
+		max-height: 170px;
+		margin: .5em auto;
+	}
+	a {
+		display: block;
+	}
+}
+.artist-btn {
+		a {
+			display: block;
+			padding: 1em .5em;
+			word-wrap: break-word;
+			margin: .5em;
+			span {
+				margin-right: .4em;
+			}
+		}
+}
+.bio {
+	min-height: 500px;
+	padding: .5em;
+	border: none;
+	img {
+		float: left;
+		margin: .5em;
+	}
+}
+@media (max-width: $xssmall) {
+	.artist-main {
+		img {
+			display: none;
+		}
+		a {
+			width: 100%;
+			margin: auto;
+		}
+	}
+}
+
+@media (min-width: $xssmall) and (max-width: $small) {
+	.artist-main, .artist-btn {
+		width: 45%;
+		float: left;
+	}
+	.artist-btn {
+		margin-left: 5%;
+		a {
+			display: block;
+			margin-top: 1em;
+		}
+	}
+	.bio {
+		border-top: 1px solid #ddd;
+		img {
+			max-width: 50%;
+			margin-right: 1em;
+		}	
+	}
+}
+@media (min-width: $small) and (max-width:$medium) {
+	.artist-main {
+		img {
+			display: none;
+		}
+		a {
+			width: 100%;
+			margin: auto;
+		}
+	}
+	.artist-btn {
+		a {
+			width: 100%;
+			margin-bottom: 1em;
+		}
+	}
+	.bio {
+		img {
+			max-width: 50%;
+			margin-right: 1em;
+		}
+	}
+}
+@media (min-width: $medium) and (max-width:$largest) {
+	.artist-main {
+		margin: 0;
+		width: 50%;
+		float: left;
+		a {
+			width: 90%;
+		}
+	}
+	.artist-btn {
+		width: 50%;
+		float: left;
+		a {
+			margin-bottom: 1em;
+			width: 90%;
+			padding: 1em .5em;
+		}
+	}
+	.bio {
+		img {
+			max-width: 70%;
+			margin-right: 1em;
+		}
+	}
+}
