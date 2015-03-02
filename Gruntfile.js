@@ -91,7 +91,7 @@ grunt.initConfig({
   },
   concat: {
     dist: {
-      src: ['src/js/utils.js','src/js/swApp.js','src/js/showBioCtrl.js'],
+      src: ['src/js/utils.js','src/js/swApp.js', 'src/js/artists4Country.js','src/js/showBioCtrl.js','src/js/topSongs.js'],
       dest: 'src/js/screen.js'
     }        
   },

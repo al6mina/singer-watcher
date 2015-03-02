@@ -63,6 +63,9 @@
             width: 100%;
             margin: auto auto;
           }
+          span {
+            padding-top: 25%;
+          }
 
         }
       }
@@ -121,6 +124,9 @@
       .thumbnail {
         padding: .3em;
         height: 176px;
+        span {
+          padding-top: 25%;
+        }
       }
     }
   }
