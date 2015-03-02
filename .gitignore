@@ -2,4 +2,5 @@ node_modules
 .sass-cache
 public
 sprite.png
+sprite.scss
 screen.js

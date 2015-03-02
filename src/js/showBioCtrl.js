@@ -1,6 +1,6 @@
 swApp.controller('showBioCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
  	$scope.model = {
-    item: $routeParams.item   
+    	item: $routeParams.item   
  	}; 
  	$scope.item = $routeParams.item;
  	$scope.src = 'images/artist.jpg';
