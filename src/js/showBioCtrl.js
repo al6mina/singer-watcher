@@ -20,6 +20,6 @@ swApp.controller('showBioCtrl', ['$scope', '$routeParams', '$http', function ($s
         .error ( function (data) {
 
         });
-        }]);        
+}]);        
     
    
