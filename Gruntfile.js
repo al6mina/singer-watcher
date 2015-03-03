@@ -12,7 +12,7 @@ module.exports = function(grunt) {
   grunt.initConfig ({
     clean: {
       all: {
-        src: ['public/*','src/js/screen.js']
+        src: ['public/*', 'src/js/screen.js']
       }
     },
     sprite: {
