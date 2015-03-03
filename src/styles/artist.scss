@@ -12,7 +12,7 @@
     margin: .5em;
   }
 }
-.artist-btn {
+.artist-menu {
     a {
       display: block;
       margin: .5em;
@@ -24,7 +24,7 @@
       }
     }
 }
-.bio {
+.artist-bio {
   border: none;
   min-height: 500px;
   padding: .5em;
@@ -46,7 +46,7 @@
       width: 100%;      
     }
   }
-  .bio {
+  .artist-bio {
     img {
       float: none;
       margin: auto;
@@ -69,7 +69,7 @@
       max-width: 70%;
     }
   }
-  .artist-btn {
+  .artist-menu{
     float: left;
     margin-left: 5%;
     width: 45%;
@@ -100,7 +100,7 @@
       width: 100%;      
     }
   }
-  .artist-btn {
+  .artist-menu {
     a {
       margin-bottom: 1em;
       width: 100%;      
@@ -124,7 +124,7 @@
       width: 90%;
     }
   }
-  .artist-btn {
+  .artist-menu {
     float: left;
     width: 50%;
     
