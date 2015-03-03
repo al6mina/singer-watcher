@@ -44,7 +44,7 @@ module.exports = function(grunt) {
       },
       js:{
         files: ['src/js/*.js', 'public/js/*.js'],
-        tasks: ['jshint','uglify']
+        tasks: ['jshint', 'uglify']
       }
     },
     copy: {
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
           },
           { expand: true,
             cwd: 'src/js/templates/',
-            src:'*.*',
+            src: '*.*',
             dest: 'public/js/templates/',
             filter: 'isFile'
           },
