@@ -1,16 +1,16 @@
 .black-edition {
-    font-family:'Franklin Gothic Medium', 'Franklin', monotype;
-    main, header.row, footer {
-      color: $form-bg;
-      background: #777;
+  font-family:'Franklin Gothic Medium', 'Franklin', monotype;
 
-      .dropdown-menu {
-        li {
-          color: #777;
-        }
-      }
+  main, header.row, footer {
+    background: #777;
+    color: $form-bg;
+
+    li {
+      color: #777;
     }
-    main {
-      @include vendor (box-shadow, inset 1em $form-bg);
-    }
+  }
+
+  main {
+    @include vendor (box-shadow, inset 1em $form-bg);
+  }
 }

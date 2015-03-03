@@ -101,7 +101,7 @@ module.exports = function(grunt) {
           beautify: true 
         },
         files: {
-          'public/js/screen.js':['src/js/utils.js','src/js/swApp.js', 'src/js/artists4CountryCtrl.js','src/js/showBioCtrl.js','src/js/topSongsCtrl.js'],
+          'public/js/screen.js': ['src/js/utils.js','src/js/swApp.js', 'src/js/artists4CountryCtrl.js','src/js/showBioCtrl.js','src/js/topSongsCtrl.js'],
         }
       }
     },    
