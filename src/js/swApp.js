@@ -4,7 +4,7 @@ var SW = SW || {};
 SW.swApp = angular.module('swApp',['ngRoute']);
 
 SW.swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) { 
-  $routeProvider
+$routeProvider
   .when ('/', {
     templateUrl: 'js/templates/artists4Country.html',
     controller: 'artists4CountryCtrl'
