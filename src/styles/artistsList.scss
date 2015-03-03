@@ -1,72 +1,79 @@
 .podcast {
   list-style: none;
-  padding: 0;
   overflow: hidden;
+  padding: 0;
+  
   li {
     .thumbnail {
-      text-align: center;
-      position: relative;
+      background-color: #444;
       overflow: hidden;
       padding: .5em;
-      background-color: #444;
+      position: relative;
+      text-align: center;
+      
       a {
         display: block;    
-        text-decoration: none;
         font-size: 1em;
-        padding: 0;
+        height: 170px;        
         margin: 0;
-        height: 170px;
+        padding: 0;
         position: relative;
+        text-decoration: none;
+
         img {          
           max-height: 160px;          
         }
-        span {
-          display: none;
-          background-color: $basic-inverse;
-          color: $basic-color;
-          border: 2px solid #ddd;
-          font-size: 1.4em;
-          bottom: 4px;
 
+        span {
+          background-color: $basic-inverse;
+          border: 2px solid #ddd;
+          bottom: 4px;
+          color: $basic-color;
+          display: none;          
+          font-size: 1.4em;
         }
      }
+
      &:hover {
         span {
           display: block;
         }
-     }
+      }
+    }
   }
-}
 }
 
 .podcast-header {
-  text-align: justify;
   font-size: 1.5em;
+  text-align: left;  
 }
 
 @media (min-width: $xssmall)and (max-width:$small) {
   .podcast {
     li {
       display: inline-block;
-      width: 33%;
       padding: 0;
+      width: 33%;
+      
       .thumbnail {
         margin: .3em;
+
         a {
           height: 127px;
           margin: 0;
           overflow: hidden;
+          padding: 0;
           text-align: center;
           vertical-align: middle;
-          padding: 0;
+          
           img {
-            width: 100%;
-            margin: auto auto;
+            margin: auto;
+            width: 100%;            
           }
+
           span {
             padding-top: 25%;
           }
-
         }
       }
     }
@@ -76,54 +83,58 @@
   main.row {
     padding: .15em;
   }
+
   .podcast {
       li {
       display: block;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      
       .thumbnail {
         border-radius: 0;
-        padding:0;
         margin: 0;
-        a {
-        overflow: hidden;        
-        padding: 0;
-        height: 60px;
-        display: block;
-        line-height: 70px;
+        padding:0;
+        
+        a {       
+          display: block;
+          height: 60px;
+          line-height: 70px;
+          overflow: hidden;        
+          padding: 0;
       
-        span {
-          display: inline;
-          position: relative;
-          width: 70%;
-          background: none;
-          border: none; 
-          padding: 0; 
-          font-size: 1.3em; 
-          float: left;
-          color: #eee;
+          span {
+            background: none;
+            border: none; 
+            color: #eee; 
+            display: inline;
+            font-size: 1.3em; 
+            float: left;
+            padding: 0; 
+            position: relative;
+            width: 70%;
+          }
 
-           
-        }
         img {
-          display: block;      
-          width: 60px;        
+          display: block;
           float: left;
           height: 60px;
-          position: relative;
-          margin: auto;      
+          margin: auto;
+          position: relative;     
+          width: 60px;          
         }
        }
      }
     }
   } 
 }
+
 @media (min-width: $medium) {
   .podcast {
     li {
       .thumbnail {
-        padding: .3em;
         height: 176px;
+        padding: .3em;
+        
         span {
           padding-top: 25%;
         }

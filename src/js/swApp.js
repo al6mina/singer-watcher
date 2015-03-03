@@ -1,11 +1,13 @@
-var swApp = angular.module('swApp',['ngRoute']);
+var SW = SW || {};
 
-swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) { 
- 	$routeProvider
- 	.when ('/', {
+SW.swApp = angular.module('swApp',['ngRoute']);
+
+SW.swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) { 
+  $routeProvider
+  .when ('/', {
     templateUrl: 'js/templates/artists4Country.html',
     controller: 'artists4CountryCtrl'
-      })
+  })
   .when ('/:item/bio', {
     templateUrl: 'js/templates/artistBio.html',
     controller: 'showBioCtrl'
@@ -17,14 +19,13 @@ swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) {
   .otherwise({
     redirectTo: '/'
   });
- }
- ]);
+}]);
  
-  swApp.filter("sanitize", ['$sce', function ($sce) {
+SW.swApp.filter("sanitize", ['$sce', function ($sce) {
   return function(htmlCode){
     return $sce.trustAsHtml(htmlCode);
     };
-  }]);
+}]);
 
  
  

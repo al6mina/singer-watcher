@@ -1,9 +1,9 @@
 <section class="col-lg-4 col-md-5 col-sm-5 col-xs-12" >
-	<div class = artist-main>
-    		<img class="img-responsive" ng-src ="{{artistBio.src}}" alt="{{item}}">
-    		<a ng-href="#/{{item}}/bio" class ="btn btn-success">{{item}}</a>
+  <div class = "artist-main">
+        <img class="img-responsive" ng-src ="{{artistBio.src}}" alt="{{item}}">
+        <a ng-href="#/{{item}}/bio" class ="btn btn-success">{{item}}</a>
   </div>
-  <div class="artist-btn">
+  <div class="artist-menu">
       <a ng-href="#/{{item}}/Top Songs" class ="btn btn-default">
         <span class="glyphicon glyphicon-music"></span> Top Songs
       </a>
@@ -16,9 +16,8 @@
   </div>
 </section>
 <section class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
-	<article class ="bio">
+  <article class ="artist-bio">
       <img class="img-responsive" ng-src ="{{artistBio.src}}" alt="{{item}}">
       <p ng-bind-html="artistBio.text|sanitize">{{artistBio.text}}</p>
-
   </article>
 </section>
