@@ -1,17 +1,56 @@
 * {
   @include vendor (box-sizing, border-box);
 }
+
 body {
   font: $font-main;
 }
+<<<<<<< HEAD
 .block-centered {
   position: absolute;
   top: 0;
+=======
+
+// set user styles!! 
+.pink {
+  color: #777;
+  font-family:'Monotype Corsiva', monotype;
+  font-size: 16px;
+    
+  main{
+		background: url('../images/pink-bg.png') no-repeat 100% 100%;
+  }
+	header.row, footer{			
+		background-color: pink;
+		color: #aaa;
+  }
+}
+
+.black-edition {
+  font-family:'Franklin Gothic Medium', 'Franklin', monotype;
+
+  main, header.row, footer {
+    background: #777;
+    color: $form-bg; 
+
+    .dropdown-menu {
+      li {
+        color: #777;
+      }
+    }
+  }
+}
+
+.block-centered { 
+>>>>>>> 777adfd803ddbb62e82b939caff51178d8fe4e08
   bottom: 0;
   left: 0;
-  right: 0;
   margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;  
 }
+
 main {
   padding: 1em;
   position: relative;
