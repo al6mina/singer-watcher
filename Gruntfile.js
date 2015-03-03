@@ -9,13 +9,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-spritesmith');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.initConfig({
+  grunt.initConfig ({
     clean: {
-      all:{
+      all: {
         src: ['public/*','src/js/screen.js']
       }
     },
-    sprite:{
+    sprite: {
       all: {
         src: 'src/images/sprite/*.png',
         dest: 'src/images/sprite.png',
@@ -29,30 +29,30 @@ module.exports = function(grunt) {
           style: 'compressed',
           sourcemap: 'none'
         },
-        files : {
+        files: {
           'public/styles/main.css':'src/styles/main.scss'
         }
       }
-    },         
-    watch:{
-      options:{
-        livereload:true
+    }, 
+    watch: {
+      options: {
+        livereload: true
       },
-      sass:{
-        files:['src/styles/*.scss'],
-        tasks :['sass']
+      sass: {
+        files: ['src/styles/*.scss'],
+        tasks: ['sass']
       },
       js:{
-        files:['src/js/*.js', 'public/js/*.js'],
-        tasks:['jshint','uglify']
+        files: ['src/js/*.js', 'public/js/*.js'],
+        tasks: ['jshint','uglify']
       }
     },
     copy: {
       main: {
-        files:[
+        files: [
           { expand: true, 
             cwd: 'src/js/vendors/',
-            src:'*.*',
+            src: '*.*',
             dest: 'public/js/vendors/',
             filter: 'isFile'
           },
@@ -60,24 +60,24 @@ module.exports = function(grunt) {
             cwd: 'src/styles/vendors/css/',
             src: '*.*',
             dest: 'public/styles/vendors/css/',
-            filter: 'isFile'              
+            filter: 'isFile'
           },
           { expand: true, 
             cwd: 'src/styles/vendors/fonts/',
             src: '*.*',
             dest: 'public/styles/vendors/fonts/',
-            filter: 'isFile'            
+            filter: 'isFile'
           },
           { expand: true,
             cwd: 'src/js/templates/',
             src:'*.*',
             dest: 'public/js/templates/',
-            filter: 'isFile'      
+            filter: 'isFile'
           },
           { expand: true,
             cwd: 'src/images/',
-            src:'*.*',
-            dest: 'public/images/'          
+            src: '*.*',
+            dest: 'public/images/'
           },
           {
             expand: true,
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
       },       
     },
     jshint: {
-      files: ['src/js/*.js', 'Gruntfile.js']        
+      files: ['src/js/*.js', 'Gruntfile.js']
     },
     uglify: {
       main: {
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
           mangle: false,
           beautify: true 
         },
-        files:{
+        files: {
           'public/js/screen.js':['src/js/utils.js','src/js/swApp.js', 'src/js/artists4CountryCtrl.js','src/js/showBioCtrl.js','src/js/topSongsCtrl.js'],
         }
       }
@@ -117,5 +117,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('default', ['clean', 'sprite', 'sass', 'jshint','uglify','copy','watch']);
+  grunt.registerTask ('default', ['clean', 'sprite', 'sass', 'jshint', 'uglify', 'copy', 'watch']);
 };
