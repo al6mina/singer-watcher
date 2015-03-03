@@ -19,8 +19,8 @@ swApp.config(['$routeProvider', function ($routeProvider, $templateProvider) {
     });
    }
 ]);
- 
-  swApp.filter("sanitize", ['$sce', function ($sce) {
+
+swApp.filter("sanitize", ['$sce', function ($sce) {
   return function(htmlCode) {
     return $sce.trustAsHtml(htmlCode);
     };
