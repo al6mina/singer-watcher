@@ -1,16 +1,16 @@
 <section class="col-lg-4 col-md-5 col-sm-5 col-xs-12" >
     <div class = "artist-main">
-        <img class="img-responsive" ng-src ="{{artistBio.src}}" alt="{{item}}">
-        <a ng-href="#/{{item}}/bio" class ="btn btn-success">{{item}}</a>
+        <img class="img-responsive" ng-src ="{{artistBio.src}}" alt="{{item}}" ng-hide="hidePic" >
+        <a ng-href="#/{{item}}/bio" class ="btn btn-success" ng-click="hidePic = true" >{{item}}</a>
     </div>
     <div class="artist-menu">
-        <a ng-href="#/{{item}}/topSongs" class ="btn btn-default">
+        <a ng-href="#/{{item}}/topSongs" class ="btn btn-default" ng-click="hidePic = false">
             <span class="glyphicon glyphicon-music"></span> Top Songs
         </a>
-        <a ng-href="#/{{item}}/SimilarArtists" class ="btn btn-default">
+        <a ng-href="#/{{item}}/SimilarArtists" class ="btn btn-default"  ng-click="hidePic = false">
             <span class="glyphicon glyphicon-thumbs-up"></span> Similar Artists
         </a>
-        <a ng-href="#/{{item}}/VideoYouTube" class ="btn btn-default">
+        <a ng-href="#/{{item}}/VideoYouTube" class ="btn btn-default"  ng-click="hidePic = false">
             <span class="glyphicon glyphicon-facetime-video"></span> Video on Youtube
         </a>
     </div>

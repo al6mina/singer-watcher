@@ -1,4 +1,4 @@
-var SW = SW || {};
+
 
 SW.swApp = angular.module('swApp', ['ui.router']);
 
@@ -26,6 +26,7 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
     $urlRouterProvider.otherwise('/home');
 
 }]);
+
 SW.swApp.filter("sanitize", ['$sce', function ($sce) {
     return function(htmlCode){
         return $sce.trustAsHtml(htmlCode);

@@ -1,6 +1,6 @@
 SW.swApp.controller('artists4CountryCtrl', ['$scope', '$http', function ($scope, $http) {
     'use strict';
-    var url = 'http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=Ukraine&api_key=a1b827bb5962ea81025679fd8869f5ed&format=json';
+    var url = SW.config.BASE_URL+'?method=geo.gettopartists&country=Ukraine'+SW.config.API_KEY;
     $http.get(url)
         .success(function (data) {
             $scope.artists = data.topartists.artist;

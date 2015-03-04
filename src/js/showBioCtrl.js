@@ -5,7 +5,8 @@ SW.swApp.controller('showBioCtrl', ['$scope', '$stateParams', '$http', function 
     };
 
     $scope.item = $stateParams.item;
-    var url = 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + $scope.item + '&api_key=a1b827bb5962ea81025679fd8869f5ed&format=json';
+    $scope.show = true;
+    var url = SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY;
     $http.get(url)
         .success(function (data) {
             if ((data.error) || (data.artist.image[2]['#text'] === '')) {
@@ -17,6 +18,7 @@ SW.swApp.controller('showBioCtrl', ['$scope', '$stateParams', '$http', function 
                     src: data.artist.image[3]['#text'],
                     text: data.artist.bio.content +'<br> &copy; LastFM'
                 };
+
             }
         });
 
