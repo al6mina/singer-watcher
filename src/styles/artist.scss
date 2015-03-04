@@ -4,7 +4,7 @@
 
   img {
     margin: .5em auto;
-    max-height: 170px;    
+    max-height: 170px;
   }
 
   a {
@@ -13,16 +13,16 @@
   }
 }
 .artist-menu {
-    a {
-      display: block;
-      margin: .5em;
-      padding: 1em .5em;
-      word-wrap: break-word;
+  a {
+    display: block;
+    margin: .5em;
+    padding: 1em .5em;
+    word-wrap: break-word;
 
-      span {
-        margin-right: .4em;
-      }
+    span {
+      margin-right: .4em;
     }
+  }
 }
 .artist-bio {
   border: none;
@@ -43,14 +43,14 @@
 
     a {
       margin: .5em;
-      width: 100%;      
+      width: 100%;
     }
   }
   .artist-bio {
     img {
       float: none;
       margin: auto;
-      max-width: 70%;     
+      max-width: 70%;
     }
   }
 }
@@ -62,7 +62,7 @@
 
     a {
       margin: 1em auto;
-      max-width: 70%;     
+      max-width: 70%;
     }
 
     img {
@@ -73,7 +73,7 @@
     float: left;
     margin-left: 5%;
     width: 45%;
-    
+
     a {
       display: block;
       margin-top: 1em;
@@ -85,7 +85,7 @@
     img {
       margin-right: 1em;
       max-width: 50%;
-    } 
+    }
   }
 }
 
@@ -97,13 +97,13 @@
 
     a {
       margin: .5em;
-      width: 100%;      
+      width: 100%;
     }
   }
   .artist-menu {
     a {
       margin-bottom: 1em;
-      width: 100%;      
+      width: 100%;
     }
   }
   .artist-bio {
@@ -119,7 +119,7 @@
     float: left;
     margin: 0;
     width: 50%;
-    
+
     a {
       width: 90%;
     }
@@ -127,17 +127,17 @@
   .artist-menu {
     float: left;
     width: 50%;
-    
+
     a {
       margin-bottom: 1em;
       padding: 1em .5em;
-      width: 90%;     
+      width: 90%;
     }
   }
   .artist-bio {
     img {
       margin-right: 1em;
-      max-width: 70%;     
+      max-width: 70%;
     }
   }
 }

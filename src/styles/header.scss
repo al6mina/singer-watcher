@@ -2,10 +2,10 @@ header.row {
   background-color: $headers-color;
   border-radius: $border-radius $border-radius 0 0;
   padding: 1em;
-  
+
   .right {
     text-align: right;
-  } 
+  }
 
   .img-responsive.logo {
     max-width: 8em;
@@ -13,12 +13,12 @@ header.row {
   .nav-head {
     li {
       display: inline-block;
-      margin-left: 2.6%; 
+      margin-left: 2.6%;
 
       a {
         color: $basic-color;
         display: block;
-        font-size: 3em;        
+        font-size: 3em;
         text-decoration: none;
 
         &:hover {
@@ -35,18 +35,18 @@ header.row {
       left: -70px;
       margin-right: 3%;
       min-width: 10em;
-      padding: 1em;  
+      padding: 1em;
 
       li{
         display: block;
       }
-    }  
+    }
   }
   .input-group {
     font-size: 1em;
-    margin-top: 1.5em;    
+    margin-top: 1.5em;
   }
-} 
+}
 
 @media (max-width: $xssmall) {
   header.row {
@@ -64,5 +64,5 @@ header.row {
         left: -100px;
       }
     }
-  }  
+  }
 }
