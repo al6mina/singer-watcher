@@ -9,7 +9,6 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
             templateUrl: 'js/templates/artists4Country.html',
             controller: 'artists4CountryCtrl'
         })
-
         .state('/item', {
             url: '/:item',
             templateUrl: 'js/templates/artistMenu.html',
@@ -24,10 +23,9 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
             templateUrl: 'js/templates/topSongs.html',
             controller: 'topSongsCtrl'
         });
-
     $urlRouterProvider.otherwise('/home');
-}]);
 
+}]);
 SW.swApp.filter("sanitize", ['$sce', function ($sce) {
     return function(htmlCode){
         return $sce.trustAsHtml(htmlCode);

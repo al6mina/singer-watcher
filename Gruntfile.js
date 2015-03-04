@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -9,7 +8,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-spritesmith');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
-    grunt.initConfig ({
+    grunt.initConfig({
         clean: {
             all: {
                 src: ['public/*', 'src/js/screen.js']
@@ -30,7 +29,7 @@ module.exports = function(grunt) {
                     sourcemap: 'none'
                 },
                 files: {
-                    'public/styles/main.css':'src/styles/main.scss'
+                    'public/styles/main.css': 'src/styles/main.scss'
                 }
             }
         },
@@ -42,7 +41,7 @@ module.exports = function(grunt) {
                 files: ['src/styles/*.scss'],
                 tasks: ['sass']
             },
-            js:{
+            js: {
                 files: ['src/js/*.js', 'public/js/*.js'],
                 tasks: ['jshint', 'uglify']
             }
@@ -50,31 +49,36 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    { expand: true,
+                    {
+                        expand: true,
                         cwd: 'src/js/vendors/',
                         src: '*.*',
                         dest: 'public/js/vendors/',
                         filter: 'isFile'
                     },
-                    { expand: true,
+                    {
+                        expand: true,
                         cwd: 'src/styles/vendors/css/',
                         src: '*.*',
                         dest: 'public/styles/vendors/css/',
                         filter: 'isFile'
                     },
-                    { expand: true,
+                    {
+                        expand: true,
                         cwd: 'src/styles/vendors/fonts/',
                         src: '*.*',
                         dest: 'public/styles/vendors/fonts/',
                         filter: 'isFile'
                     },
-                    { expand: true,
+                    {
+                        expand: true,
                         cwd: 'src/js/templates/',
                         src: '*.*',
                         dest: 'public/js/templates/',
                         filter: 'isFile'
                     },
-                    { expand: true,
+                    {
+                        expand: true,
                         cwd: 'src/images/',
                         src: '*.*',
                         dest: 'public/images/'
@@ -115,7 +119,9 @@ module.exports = function(grunt) {
                 }
             }
         }
-    });
 
-    grunt.registerTask ('default', ['clean', 'sprite', 'sass', 'jshint', 'uglify', 'copy', 'watch']);
+    });
+    grunt.registerTask('default', ['clean', 'sprite', 'sass', 'jshint', 'uglify', 'copy', 'watch']);
 };
+
+
