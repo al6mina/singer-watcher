@@ -1,9 +1,11 @@
 SW.swApp.controller('themesCtrl', ['$scope', function($scope) {
     $scope.themes = SW.config.themes;
-    $scope.changeClass =  function (item){
-        if (SW.utils.checkLocalStorage) {
-            localStorage.setItem('class', item);
-            $('body').attr('class', item);
-        }
-    };
+    if (SW.utils.checkLocalStorage) {
+        $scope.active = {
+            theme: localStorage.getItem('class')
+        };
+        $scope.$watch('active.theme', function (newValue) {
+            localStorage.setItem('class', newValue);
+        });
+    } else alert ('You can choose only default theme');
 }]);

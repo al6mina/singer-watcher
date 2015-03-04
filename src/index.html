@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <title>Singer Watcher</title>
 </head>
-<body>
+<body ng-controller="themesCtrl" class={{active.theme}}>
 <div class="container-fluid">
     <header class="row">
         <div class="col-lg-2 col-md-5 col-sm-4 col-xs-4">
@@ -21,10 +21,10 @@
                     <a href="" class="dropdown-toggle"  id="dropdownMenu1" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-controller="themesCtrl">
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" >
                         <li role="presentation" ng-repeat="theme in themes">
                             <label>
-                                <input type ="radio" name="stylePage" role="menuitem" value= {{theme}} ng-click="changeClass(theme)"> {{theme}}
+                                <input type ="radio" name="stylePage" role="menuitem" value= {{theme}} ng-model="active.theme" > {{theme}}
                             </label>
                         </li>
                     </ul>
