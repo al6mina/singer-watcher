@@ -55,7 +55,7 @@
   }
 }
 
-@media (min-width: $xssmall) and (max-width: $small) {
+@media (min-width: $xssmall_begin) and (max-width: $small) {
   .artist-main {
     float: left;
     width: 45%;
@@ -89,7 +89,7 @@
   }
 }
 
-@media (min-width: $small) and (max-width:$medium) {
+@media (min-width: $small_begin) and (max-width: $medium) {
   .artist-main {
     img {
       display: none;
@@ -114,7 +114,7 @@
     }
   }
 }
-@media (min-width: $medium) and (max-width:$largest) {
+@media (min-width: $medium_begin) and (max-width: $largest) {
   .artist-main {
     float: left;
     margin: 0;
