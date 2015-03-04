@@ -21,20 +21,10 @@
                     <a href="" class="dropdown-toggle"  id="dropdownMenu1" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation">
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" ng-controller="themesCtrl">
+                        <li role="presentation" ng-repeat="theme in themes">
                             <label>
-                                <input type ="radio" value ="def" name="stylePage" role="menuitem" tabindex="-1" checked> default
-                            </label>
-                        </li>
-                        <li role="presentation">
-                            <label>
-                                <input type ="radio" value ="pink" name="stylePage" role="menuitem" tabindex="-1"> Pink
-                            </label>
-                        </li>
-                        <li role="presentation">
-                            <label>
-                                <input type ="radio" value="black-edition" name="stylePage" role="menuitem" tabindex="-1"> Black
+                                <input type ="radio" name="stylePage" role="menuitem" value= {{theme}} ng-click="changeClass(theme)"> {{theme}}
                             </label>
                         </li>
                     </ul>

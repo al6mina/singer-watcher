@@ -1,5 +1,3 @@
-
-
 SW.swApp = angular.module('swApp', ['ui.router']);
 
 SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
