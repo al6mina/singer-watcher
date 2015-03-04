@@ -1,9 +1,20 @@
 * {
-	@include vendor (box-sizing, border-box);
+  @include vendor (box-sizing, border-box);
 }
+
 body {
   font: $font-main;
 }
+
+.block-centered {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 main {
   padding: 1em;
   position: relative;
@@ -14,3 +25,4 @@ main {
     width: 90%;
   }
 }
+

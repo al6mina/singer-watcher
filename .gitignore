@@ -1,5 +1,7 @@
 node_modules
 .sass-cache
+.idea
 public
 sprite.png
+sprite.scss
 screen.js

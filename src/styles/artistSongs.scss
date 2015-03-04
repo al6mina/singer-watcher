@@ -1,0 +1,42 @@
+.all-songs-list {
+  padding: 0;
+  margin-top: 2em;
+  li {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+
+    .thumbnail {
+      margin: 0;
+      padding: 2%;
+      .btn-group {
+        display: inline-block;
+        margin-right: 5%;
+      }
+      .artist-song {
+        display: inline-block;
+        font-size: 2em;
+        text-decoration: none;
+      }
+      &:hover {
+        background-color: #8699a4;
+      }
+    }
+  }
+}
+@media (max-width: $xssmall) {
+  .all-songs-list {
+
+    margin-top: 1em;
+    padding: .5em;
+
+    li {
+      padding: 0;
+      .thumbnail {
+        .artist-song {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}

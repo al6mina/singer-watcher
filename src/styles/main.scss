@@ -5,7 +5,14 @@
 @import 'common.scss';
 @import 'header.scss';
 @import 'footer.scss';
-@import 'artists-list.scss';
+@import 'artistsList.scss';
+@import 'artist.scss';
+@import 'artistSongs.scss';
+
+// themes for user styles
+
+@import 'themes/pink.scss';
+@import 'themes/black.scss';
 
 
 

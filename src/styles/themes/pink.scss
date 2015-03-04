@@ -1,0 +1,14 @@
+.pink {
+  font-family: 'Monotype Corsiva', monotype;
+  font-size: 16px;
+  color: #777;
+
+  main{
+    background: url('../images/pink-bg.png') no-repeat 100% 100%;
+  }
+
+  header.row, footer {
+    background-color: pink;
+    color: #aaa;
+  }
+}

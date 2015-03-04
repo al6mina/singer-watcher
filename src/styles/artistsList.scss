@@ -1,0 +1,144 @@
+.podcast {
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+
+  li {
+    .thumbnail {
+      background-color: #444;
+      overflow: hidden;
+      padding: .5em;
+      position: relative;
+      text-align: center;
+
+      a {
+        display: block;
+        font-size: 1em;
+        height: 170px;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-decoration: none;
+
+        img {
+          max-height: 160px;
+        }
+
+        span {
+          background-color: $basic-inverse;
+          border: 2px solid #ddd;
+          bottom: 4px;
+          color: $basic-color;
+          display: none;
+          font-size: 1.4em;
+        }
+      }
+
+      &:hover {
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.podcast-header {
+  font-size: 1.5em;
+  text-align: left;
+}
+
+
+@media (max-width: $xssmall) {
+  main.row {
+    padding: .15em;
+  }
+
+  .podcast {
+    li {
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      .thumbnail {
+        border-radius: 0;
+        margin: 0;
+        padding:0;
+
+        a {
+          display: block;
+          height: 60px;
+          line-height: 70px;
+          overflow: hidden;
+          padding: 0;
+
+          span {
+            background: none;
+            border: none;
+            color: #eee;
+            display: inline;
+            font-size: 1.3em;
+            float: left;
+            padding: 0;
+            position: relative;
+            width: 70%;
+          }
+
+          img {
+            display: block;
+            float: left;
+            height: 60px;
+            margin: auto;
+            position: relative;
+            width: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: $xssmall_begin)and (max-width: $small) {
+  .podcast {
+    li {
+      display: inline-block;
+      padding: 0;
+      width: 33%;
+
+      .thumbnail {
+        margin: .3em;
+
+        a {
+          height: 127px;
+          margin: 0;
+          overflow: hidden;
+          padding: 0;
+          text-align: center;
+          vertical-align: middle;
+
+          img {
+            margin: auto;
+            width: 100%;
+          }
+
+          span {
+            padding-top: 25%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: $medium) {
+  .podcast {
+    li {
+      .thumbnail {
+        height: 176px;
+        padding: .3em;
+
+        span {
+          padding-top: 25%;
+        }
+      }
+    }
+  }
+}
