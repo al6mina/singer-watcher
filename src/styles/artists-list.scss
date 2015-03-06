@@ -44,7 +44,9 @@
 }
 
 .podcast-header {
+  display: inline;
   font-size: 1.5em;
+  margin-bottom: 1em;
   text-align: left;
 }
 
@@ -77,7 +79,7 @@
             border: none;
             color: #eee;
             display: inline;
-            font-size: 1.3em;
+            font-size: 1.2em;
             float: left;
             padding: 0;
             position: relative;
@@ -96,13 +98,27 @@
       }
     }
   }
+  .subview {
+    padding: 0;
+
+    .podcast {
+      li {
+        .thumbnail {
+          max-height: 70px;
+        }
+      }
+    }
+    span {
+      font-size: 1em;
+    }
+  }
 }
 @media (min-width: $xssmall_begin)and (max-width: $small) {
   .podcast {
     li {
       display: inline-block;
       padding: 0;
-      width: 33%;
+      width: 30%;
 
       .thumbnail {
         margin: .3em;
@@ -127,8 +143,44 @@
       }
     }
   }
+  .subview {
+    .podcast {
+      li {
+        width: 25%;
+        .thumbnail {
+          a {
+            span {
+              font-size: 1em;
+              padding-top: 1em;
+
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
-@media (min-width: $medium) {
+@media (max-width: $medium) {
+  .subview {
+    .podcast {
+      li {
+        .thumbnail {
+          height: 130px;
+          padding: .3em;
+          a {
+            height: 120px;
+            img {
+              max-height: 115px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+@media (min-width: $medium_begin) and(max-width: $largest) {
   .podcast {
     li {
       .thumbnail {
@@ -137,6 +189,45 @@
 
         span {
           padding-top: 25%;
+        }
+      }
+    }
+  }
+  .subview {
+    .podcast {
+      li {
+        .thumbnail {
+          height: 130px;
+          padding: .3em;
+
+          a {
+            height: 120px;
+
+            img {
+              max-height: 115px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: ($largest+1)) {
+  .subview {
+    .podcast {
+      li {
+        min-width: 25%;
+        .thumbnail {
+          a {
+            height: 140px;
+            img {
+              max-height: 140px;
+            }
+            span {
+              font-size: 1em;
+              padding: 1em;
+            }
+          }
         }
       }
     }

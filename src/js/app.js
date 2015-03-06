@@ -5,7 +5,7 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
         .state('/home', {
             url: '/home',
             templateUrl: 'js/templates/artists4Country.html',
-            controller: 'artists4CountryCtrl'
+            controller: 'artistsListCtrl'
         })
         .state('/item', {
             url: '/:item',
@@ -20,6 +20,15 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
             url: '/topSongs',
             templateUrl: 'js/templates/topSongs.html',
             controller: 'topSongsCtrl'
+        })
+        .state('/item.SimilarArtists', {
+            url: '/SimilarArtists',
+            templateUrl: 'js/templates/artists4Country.html',
+            controller: 'similarCtrl'
+        })
+        .state('/item.YouTubeVideos', {
+            url: '/YouTubeVideos',
+            controller: 'YouTubeVideosCtrl'
         });
     $urlRouterProvider.otherwise('/home');
 
