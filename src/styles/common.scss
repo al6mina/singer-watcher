@@ -18,11 +18,15 @@ body {
 main {
   padding: 1em;
   position: relative;
-}
+  }
 
 @media (min-width: $largest) {
   .container-fluid {
     width: 90%;
+
+    main {
+      min-height: 700px;
+    }
   }
 }
 

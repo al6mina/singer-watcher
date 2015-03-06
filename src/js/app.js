@@ -1,4 +1,4 @@
-SW.swApp = angular.module('swApp', ['ui.router']);
+SW.swApp = angular.module('swApp', ['ui.router','ngAnimate']);
 
 SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider

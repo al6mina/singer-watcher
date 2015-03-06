@@ -8,7 +8,14 @@ SW.swApp.controller ('topSongsCtrl', ['$scope', '$stateParams', '$http', functio
 
     $http.get(url)
         .success(function (data) {
-            $scope.songs = data.toptracks.track;
+            $scope.songs = {};
+
+            if (data.toptracks.total === '0'){
+                $scope.header = 'There are not that data in our base';
+            } else {
+                $scope.songs = data.toptracks.track;
+            }
+
         });
 
 }]);

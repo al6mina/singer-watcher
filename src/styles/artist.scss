@@ -1,3 +1,4 @@
+                                    // styles for artist's main menu
 .artist-main {
   margin: .5em auto;
   max-height: 170px;
@@ -28,6 +29,28 @@
   }
 }
 
+                                        // animation classes
+.subview.ng-enter,
+.subview.ng-leave {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.subview.ng-enter {
+  left: 100%;
+}
+.subview.ng-enter-active {
+  left: 0;
+}
+.subview.slide.ng-leave {
+  left: 0;
+}
+.subview.ng-leave-active {
+  left: -150%;
+}
+
+                                  // query for different screens
 @media (max-width: $xssmall) {
   .artist-main {
     display: none;
