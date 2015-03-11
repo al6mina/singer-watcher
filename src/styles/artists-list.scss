@@ -1,3 +1,5 @@
+                                                    // styles for list of artists
+                      //main page
 .podcast {
   list-style: none;
   overflow: hidden;
@@ -31,9 +33,9 @@
           color: $basic-color;
           display: none;
           font-size: 1.4em;
+          padding: 25% 0;
         }
       }
-
       &:hover {
         span {
           display: block;
@@ -44,11 +46,13 @@
 }
 
 .podcast-header {
+  display: block;
   font-size: 1.5em;
+  margin-bottom: 1em;
   text-align: left;
 }
 
-
+// query for different screens
 @media (max-width: $xssmall) {
   main.row {
     padding: .15em;
@@ -77,10 +81,10 @@
             border: none;
             color: #eee;
             display: inline;
-            font-size: 1.3em;
+            font-size: 1.2em;
             float: left;
-            padding: 0;
             position: relative;
+            padding: 0;
             width: 70%;
           }
 
@@ -96,13 +100,29 @@
       }
     }
   }
+                                      // subview, similar artists presentation
+  .subview {
+    padding: 0;
+
+    .podcast {
+      li {
+        .thumbnail {
+          max-height: 70px;
+        }
+      }
+    }
+    span {
+      font-size: 1em;
+    }
+  }
 }
+                                                    // query for different screen
 @media (min-width: $xssmall_begin)and (max-width: $small) {
   .podcast {
     li {
       display: inline-block;
       padding: 0;
-      width: 33%;
+      width: 30%;
 
       .thumbnail {
         margin: .3em;
@@ -127,16 +147,89 @@
       }
     }
   }
+  .subview {
+    .podcast {
+      li {
+        width: 25%;
+
+        .thumbnail {
+          a {
+            span {
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
-@media (min-width: $medium) {
+@media (max-width: $medium) {
+  .subview {
+    .podcast {
+      li {
+        .thumbnail {
+          height: 130px;
+          padding: .3em;
+
+          a {
+            height: 120px;
+
+            img {
+              max-height: 115px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+@media (min-width: $medium_begin) and(max-width: $largest) {
   .podcast {
     li {
       .thumbnail {
         height: 176px;
         padding: .3em;
+      }
+    }
+  }
+  .subview {
+    .podcast {
+      li {
+        .thumbnail {
+          height: 130px;
+          padding: .3em;
 
-        span {
-          padding-top: 25%;
+          a {
+            height: 120px;
+
+            img {
+              max-height: 115px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: ($largest+1)) {
+  .subview {
+    .podcast {
+      li {
+        min-width: 25%;
+
+        .thumbnail {
+          a {
+            height: 140px;
+
+            img {
+              max-height: 140px;
+            }
+            span {
+              font-size: 1em;
+            }
+          }
         }
       }
     }

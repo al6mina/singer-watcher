@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <title>Singer Watcher</title>
 </head>
-<body ng-controller="themesCtrl" class={{active.theme}}>
+<body ng-controller="ThemesCtrl" class={{active.theme}}>
 <div class="container-fluid">
     <header class="row">
         <div class="col-lg-2 col-md-5 col-sm-4 col-xs-4">
@@ -33,9 +33,9 @@
         </div>
         <div class="col-lg-4 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Type the artist ...">
+                <input type="text" class="form-control" placeholder="Type the artist ..." ng-model="item" id="searchForm">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Search!</button>
+                <a class="btn btn-default" type="button" ng-class="{active: item.bio.selected}" ng-href="#/{{item}}/bio" >Search!</a>
               </span>
             </div>
         </div>
@@ -55,6 +55,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/vendors/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.3.14/angular-animate.min.js"></script>
 <script src="js/vendors/angular-ui-router.min.js"></script>
 <script src="js/screen.js"></script>
 </body>

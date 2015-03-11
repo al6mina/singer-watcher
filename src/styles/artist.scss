@@ -1,21 +1,15 @@
+                                    // styles for artist's main menu
 .artist-main {
-  margin-bottom: 1em;
-  text-align: center;
-
-  img {
-    margin: .5em auto;
-    max-height: 170px;
-  }
-
-  a {
-    display: block;
-    margin: .5em;
-  }
+  margin: .5em auto;
+  max-height: 170px;
 }
 .artist-menu {
+  .btn {
+    white-space: normal;
+  }
   a {
     display: block;
-    margin: .5em;
+    margin: .5em auto;
     padding: 1em .5em;
     word-wrap: break-word;
 
@@ -35,21 +29,58 @@
   }
 }
 
+                                        // animation classes
+.subview.ng-enter,
+.subview.ng-leave {
+  @include vendor('transition', 'all 1s ease');
+}
+.subview.ng-enter {
+  left: 100%;
+}
+.subview.ng-enter-active {
+  left: 0;
+}
+.subview.ng-leave {
+  left: 0;
+}
+.subview.ng-leave-active {
+  left: -150%;
+}
+
+                                  // query for different screens
 @media (max-width: $xssmall) {
   .artist-main {
-    img {
-      display: none;
-    }
+    display: none;
+  }
+  .artist-menu {
+    text-align: center;
 
     a {
-      margin: .5em;
-      width: 100%;
+      color: white;
+      display: inline-block;
+      height: 50px;
+      margin-right: 2%;
+      overflow: hidden;
+      padding: .3em;
+      width: 50px;
+      word-wrap: break-word;
+
+      span {
+        color: black;
+        font-size: 2.5em;
+        margin: 0 auto;
+      }
+    }
+    .btn {
+      &:hover {
+        color: #ddd;
+      }
     }
   }
   .artist-bio {
     img {
       float: none;
-      margin: auto;
+      margin: .5em auto;
       max-width: 70%;
     }
   }
@@ -58,25 +89,18 @@
 @media (min-width: $xssmall_begin) and (max-width: $small) {
   .artist-main {
     float: left;
-    width: 45%;
-
-    a {
-      margin: 1em auto;
-      max-width: 70%;
-    }
-
-    img {
-      max-width: 70%;
-    }
+    max-width: 45%;
+    margin-top: 1em;
   }
   .artist-menu{
     float: left;
     margin-left: 5%;
-    width: 45%;
+    width: 50%;
 
     a {
       display: block;
       margin-top: 1em;
+      padding: .5em;
     }
   }
   .artist-bio {
@@ -90,42 +114,30 @@
 }
 
 @media (min-width: $small_begin) and (max-width: $medium) {
-  .artist-main {
-    img {
-      display: none;
-    }
-
-    a {
-      margin: .5em;
-      width: 100%;
-    }
-  }
   .artist-menu {
     a {
       margin-bottom: 1em;
-      width: 100%;
+      width: 80%;
     }
   }
   .artist-bio {
     img {
+      float: left;
       margin: 1em;
       max-width: 50%;
-      float: left;
     }
   }
 }
-@media (min-width: $medium_begin) and (max-width: $largest) {
+@media (min-width: $largest) {
   .artist-main {
     float: left;
-    margin: 0;
-    width: 50%;
-
-    a {
-      width: 90%;
-    }
+    margin: 2em auto;
+    max-width: 50%;
   }
   .artist-menu {
     float: left;
+    margin: 0;
+    padding: 1em;
     width: 50%;
 
     a {
