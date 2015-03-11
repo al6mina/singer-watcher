@@ -16,11 +16,12 @@ SW.swApp.controller('YouTubeVideosCtrl', ['$scope', '$http','$stateParams' , fun
             $scope.channels = data.items;
             $scope.open_url = SW.config.QUERY_URL + artist + SW.config.YOUTUBE_KEY;
             for (var i = 0; i < $scope.channels.length; i++) {
-                var channelId = $scope.channels[i].snippet.channelId,
-                    title = $scope.channels[i].snippet.channelTitle,
-                    re = new RegExp(artist + '*', 'i');
-                if (re.test(title)) {
-                    $scope.open_url = SW.config.CHANNEL_URL + channelId;
+                //var channelId = $scope.channels[i].snippet.channelId;
+                //var title = $scope.channels[i].snippet.channelTitle;
+                var re = new RegExp(artist + '*', 'i');
+
+                if (re.test($scope.channels[i].snippet.channelTitle)) {
+                    $scope.open_url = SW.config.CHANNEL_URL +  $scope.channels[i].snippet.channelId;
                     break;
                 }
             }

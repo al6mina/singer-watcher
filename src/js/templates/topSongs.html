@@ -1,13 +1,17 @@
 <h3 class="podcast-header"> {{header}}</h3>
 <ul class="all-songs-list">
-    <li class="col-lg-2 col-md-2 col-sm-3" ng-repeat="song in songs">
+     <li class="col-lg-2 col-md-2 col-sm-3" ng-repeat="title in songs">
         <div class="thumbnail">
             <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-heart"></span></button>
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-usd"></span></button>
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-facetime-video"></span></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-heart" ng-click="add(title.name)"></span></button>
+                <a type="button" class="btn btn-default" ng-href="#/{{item}}/top-songs/{{title.name}}/buy-song" ng-click="buySong(title.name)">
+                    <span class="glyphicon glyphicon-usd"></span>
+                </a>
+                <a type="button" class="btn btn-default" ng-href="#/{{item}}/top-songs/{{title.name}}/video" ng-click="video(title.name,$event)">
+                    <span class="glyphicon glyphicon-facetime-video"></span>
+                </a>
             </div>
-            <a href="" class="artist-song">{{song.name}}</a>
+            <a href="" class="artist-song">{{title.name}}</a>
         </div>
     </li>
 </ul>

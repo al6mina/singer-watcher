@@ -32,10 +32,7 @@
                                         // animation classes
 .subview.ng-enter,
 .subview.ng-leave {
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  @include vendor('transition', 'all 1s ease');
 }
 .subview.ng-enter {
   left: 100%;
@@ -43,7 +40,7 @@
 .subview.ng-enter-active {
   left: 0;
 }
-.subview.slide.ng-leave {
+.subview.ng-leave {
   left: 0;
 }
 .subview.ng-leave-active {
@@ -142,6 +139,7 @@
     margin: 0;
     padding: 1em;
     width: 50%;
+
     a {
       margin-bottom: 1em;
       padding: 1em .5em;

@@ -8,5 +8,9 @@
    QUERY_URL: 'https://www.youtube.com/results?search_query=',
    CHANNEL_URL: 'https://www.youtube.com/channel/',
    SEARCH_CHANNEL: 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=',
+   SEARCH_VIDEO: 'http://gdata.youtube.com/feeds/api/videos?alt=json&q=',
+   STARTMAX: '&start-index=1&max-results=25&v=2',
+   SONG_VIDEO: 'http://www.youtube.com/embed/',
+   BUYSONG: 'http://www.amazon.com/gp/search?ie=UTF8&keywords=',
    themes : ['default', 'pink', 'black']
  };

@@ -1,4 +1,4 @@
-SW.swApp.controller('similarCtrl', ['$scope', '$http','$stateParams' , function ($scope, $http, $stateParams) {
+SW.swApp.controller('SimilarCtrl', ['$scope', '$http','$stateParams' , function ($scope, $http, $stateParams) {
     'use strict';
     $scope.model = {
         item: $stateParams.item

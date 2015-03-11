@@ -1,9 +1,10 @@
-SW.swApp.controller('showBioCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
+SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
     'use strict';
     $scope.model = {
         item: $stateParams.item
     };
-
+    $('#searchForm').val('');
+    $scope.hide = true;
     $scope.item = $stateParams.item;
     var url = SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY;
     $http.get(url)
