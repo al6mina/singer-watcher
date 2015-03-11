@@ -1,8 +1,3 @@
-/**
- * Created by Albina_Kremlovska on 3/5/2015.
- * controller for searching YouTube channel or special query of choosen artist
- */
-
 SW.swApp.controller('YouTubeVideosCtrl', ['$scope', '$http','$stateParams' , function ($scope, $http, $stateParams) {
     'use strict';
     $scope.model = {
@@ -16,9 +11,7 @@ SW.swApp.controller('YouTubeVideosCtrl', ['$scope', '$http','$stateParams' , fun
             $scope.channels = data.items;
             $scope.open_url = SW.config.QUERY_URL + artist + SW.config.YOUTUBE_KEY;
             for (var i = 0; i < $scope.channels.length; i++) {
-                //var channelId = $scope.channels[i].snippet.channelId;
-                //var title = $scope.channels[i].snippet.channelTitle;
-                var re = new RegExp(artist + '*', 'i');
+                 var re = new RegExp(artist + '*', 'i');
 
                 if (re.test($scope.channels[i].snippet.channelTitle)) {
                     $scope.open_url = SW.config.CHANNEL_URL +  $scope.channels[i].snippet.channelId;
