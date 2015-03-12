@@ -3,17 +3,20 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
     $scope.model = {
         item: $stateParams.item
     };
-    $('#searchForm').val('');
+    $('#searchForm input').val('');
     $scope.hide = true;
     $scope.item = $stateParams.item;
+
     var url = SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY;
     $http.get(url)
         .success(function (data) {
             $scope.artistBio = {};
             if ((data.error === 6) || (data.artist.image[2]['#text'] === '')) {
-                $scope.artistBio.src = 'images/logo.png';
+                $scope.artistBio.src = 'images/nodata.png';
                 $scope.artistBio.text = data.message;
+                $('#artistMenu').hide();
             } else {
+                $('#artistMenu').show();
                 $scope.artistBio = {
                     name: data.artist.name,
                     src: data.artist.image[3]['#text'],
@@ -22,7 +25,6 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
 
             }
         });
-
 }]);
 
 

@@ -35,16 +35,20 @@
   @include vendor('transition', 'all 1s ease');
 }
 .subview.ng-enter {
-  left: 100%;
+  left: 150%;
+
 }
 .subview.ng-enter-active {
   left: 0;
 }
 .subview.ng-leave {
   left: 0;
+  opacity: 0;
 }
 .subview.ng-leave-active {
   left: -150%;
+
+
 }
 
                                   // query for different screens
