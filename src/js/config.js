@@ -1,6 +1,7 @@
  var SW = SW || {};
 
  SW.config = {
+   LOCATION_URL: ['https://maps.googleapis.com/maps/api/geocode/json?latlng=', '&sensor=false&language=en'],
    BASE_URL: 'http://ws.audioscrobbler.com/2.0/',
    API_KEY: '&api_key=a1b827bb5962ea81025679fd8869f5ed&format=json',
    LIMIT: '&limit=20',
