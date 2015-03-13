@@ -2,11 +2,12 @@ SW.swApp = angular.module('swApp', ['ui.router','ngAnimate']);
 
 SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('/home', {
-            url: '/home',
+        .state('/', {
+            url: '/',
             templateUrl: 'js/templates/artistsList.html',
             controller: 'ArtistsListCtrl'
         })
+
         .state('/item', {
             url: '/:item',
             templateUrl: 'js/templates/artistMenu.html',
@@ -40,7 +41,7 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
             url: '/youtube-videos',
             controller: 'YouTubeVideosCtrl'
         });
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
 }]);
 
@@ -49,4 +50,5 @@ SW.swApp.filter("sanitize", ['$sce', function ($sce) {
         return $sce.trustAsHtml(htmlCode);
     };
 }]);
+
 

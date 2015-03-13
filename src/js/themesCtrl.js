@@ -1,4 +1,4 @@
-SW.swApp.controller('ThemesCtrl', ['$scope', function($scope) {
+SW.swApp.controller('ThemesCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.themes = SW.config.themes;
     if (SW.utils.checkLocalStorage) {
         $scope.active = {

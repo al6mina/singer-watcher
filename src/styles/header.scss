@@ -46,6 +46,11 @@ header.row {
     font-size: 1em;
     margin-top: 1.5em;
   }
+  .autosuggestion {
+    border-radius: 5%;
+    display: block;
+    width: 100%;
+  }
 }
 
 @media (max-width: $xssmall) {

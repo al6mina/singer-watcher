@@ -3,6 +3,7 @@
 }
 
 body {
+  background-color: $form-bg - 100;
   font: $font-main;
 }
 
@@ -14,19 +15,44 @@ body {
   right: 0;
   top: 0;
 }
-
-main {
-  padding: 1em;
+.preloader {
+  background: $headers-color;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100500;
+}
+.subview .preloader{
   position: relative;
-  }
+}
 
-@media (min-width: $largest) {
-  .container-fluid {
-    width: 90%;
-
-    main {
-      min-height: 700px;
-    }
+.preloader {
+  .spinner {
+    background: url('http://hello-site.ru//main/images/preloads/audio.svg') no-repeat;
+    height: 5em;
+    margin: -16px 0 0 -16px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 100%;
   }
 }
+  main {
+    background-color: $form-bg;
+    padding: 1em;
+    position: relative;
+  }
+
+  @media (min-width: $largest) {
+    .container-fluid {
+      width: 90%;
+
+      main {
+        min-height: 700px;
+      }
+    }
+  }
+
 

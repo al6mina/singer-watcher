@@ -1,9 +1,14 @@
-                                    // styles for artist's main menu
+// styles for artist's main menu
 .artist-main {
   margin: .5em auto;
   max-height: 170px;
 }
 .artist-menu {
+  h3 {
+    margin: 1em auto;
+    text-align: center;
+    width: 50%;
+  }
   .btn {
     white-space: normal;
   }
@@ -29,7 +34,7 @@
   }
 }
 
-                                        // animation classes
+// animation classes
 .subview.ng-enter,
 .subview.ng-leave {
   @include vendor('transition', 'all 1s ease');
@@ -51,7 +56,7 @@
 
 }
 
-                                  // query for different screens
+// query for different screens
 @media (max-width: $xssmall) {
   .artist-main {
     display: none;
@@ -92,14 +97,10 @@
 
 @media (min-width: $xssmall_begin) and (max-width: $small) {
   .artist-main {
-    float: left;
-    max-width: 45%;
-    margin-top: 1em;
+    margin: 1em auto;
   }
   .artist-menu{
-    float: left;
-    margin-left: 5%;
-    width: 50%;
+
 
     a {
       display: block;
@@ -134,15 +135,15 @@
 }
 @media (min-width: $largest) {
   .artist-main {
-    float: left;
+    //    float: left;
     margin: 2em auto;
-    max-width: 50%;
+    //    max-width: 50%;
   }
   .artist-menu {
-    float: left;
-    margin: 0;
-    padding: 1em;
-    width: 50%;
+    //    float: left;
+    //    margin: 0;
+    //    padding: 1em;
+    //    width: 50%;
 
     a {
       margin-bottom: 1em;

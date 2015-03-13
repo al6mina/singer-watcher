@@ -1,4 +1,4 @@
-                                                  // styles for artist's list of songs
+// styles for artist's list of songs
 
 .all-songs-list {
   margin-top: 2em;
@@ -39,8 +39,12 @@
   }
 }
 
-                                                  // query for different screens
+// query for different screens
 @media (max-width: $xssmall) {
+   .podcast-header {
+     margin: 1em auto;
+     width: 90%;
+   }
   .all-songs-list {
 
     margin-top: 1em;
@@ -51,7 +55,7 @@
 
       .thumbnail {
         .artist-song, .btn-group {
-          font-size: 1em;
+          font-size: 1.5em;
           text-align: center;
           width: 100%;
         }

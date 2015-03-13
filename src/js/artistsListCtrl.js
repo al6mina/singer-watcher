@@ -1,12 +1,11 @@
 SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $http) {
     'use strict';
-
+    $('body').append('<div id="preloader" class="preloader"><span class="spinner"></span></div>');
     (function showListDependOnLocation(){
         var userLocation;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition( function(position){
                 var url = SW.config.LOCATION_URL[0]+  position.coords.latitude+','+ position.coords.longitude+SW.config.LOCATION_URL[1];
-                console.log (url);
                 $http.get(url).
                     success ( function(data){
                     userLocation = data.results[0].formatted_address;
@@ -15,7 +14,7 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $ht
                     $scope.header = 'Here you have a list of the most popular singers of ' + userLocation;
                     $scope.getListOfArtists (userLocation);
                 });
-               return;
+                return;
             }, function(){
                 $scope.header = 'Here you have a list of the most popular singers of default country ';
                 userLocation = 'Spain';
@@ -26,14 +25,15 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $ht
             userLocation = 'Spain';
             $scope.getListOfArtists (userLocation);
         }
-    return;
+        return;
 
-})();
+    })();
 
     $scope.getListOfArtists = function (country){
         var getListUrl = SW.config.BASE_URL + '?method=geo.gettopartists&country=' + country + SW.config.API_KEY;
         $http.get(getListUrl)
             .success(function (data) {
+                $('#preloader').remove();
                 $scope.artists = data.topartists.artist;
             });
     };

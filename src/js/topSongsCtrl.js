@@ -3,17 +3,21 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
         item: $stateParams.item
 
     };
-
+    $('#artistMenu').append('<div id="preloader" class="preloader"><span class="spinner"></span></div>');
     $scope.item = $stateParams.item;
+    $scope.hide = false;
     $scope.header = 'Top songs by ' + $scope.item;
     var url = SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY;
 
     $http.get(url)
         .success(function (data) {
+            $('#preloader').remove();
             $scope.songs = {};
 
-            if (data.toptracks.total === '0'){
+            if ((data.toptracks.total === '0')||(data === 'undefined')){
                 $scope.header = 'There are not that data in our base';
+            }else if (data.error) {
+                $scope.header = data.error.message;
             } else {
                 $scope.songs = data.toptracks.track;
             }
@@ -39,6 +43,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
 
         if (parentActive.children.length === 2){
             $(parentActive).append( '<div class="embed-responsive embed-responsive-16by9 wrapper"></div>');
+            $('.wrapper').append('<div id="preloader" class="subview preloader"><span class="spinner"></span></div>');
         }else {
             $(parentActive).find('.wrapper').remove();
         }
@@ -46,6 +51,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
         // MAIN FUNCTION WHICH GET VIDEO ID AND PUT FRAME ON THE PAGE
         $http.get(search_url)
             .success(function(data) {
+                $('#preloader').remove();
                 if (data.feed.entry === undefined) {
                       $(parentActive).find('.wrapper').html('<h3>Unfortunatelly, we  haven\'t  this data. Try another artist, please!</h3>');
 

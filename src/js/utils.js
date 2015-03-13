@@ -6,4 +6,4 @@ SW.utils = {
             return false;
         }
     }()
-};
+   };
