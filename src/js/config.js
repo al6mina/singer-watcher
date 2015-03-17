@@ -13,5 +13,6 @@
    STARTMAX: '&start-index=1&max-results=25&v=2',
    SONG_VIDEO: 'http://www.youtube.com/embed/',
    BUYSONG: 'http://www.amazon.com/gp/search?ie=UTF8&keywords=',
-   themes : ['default', 'pink', 'black']
+   themes : ['default', 'pink', 'black'],
+   items: []
  };

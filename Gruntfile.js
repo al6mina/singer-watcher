@@ -106,7 +106,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'public/js/screen.js': ['src/js/config.js', 'src/js/utils.js', 'src/js/app.js', 'src/js/themesCtrl.js', 'src/js/artistsListCtrl.js',
-                        'src/js/showBioCtrl.js', 'src/js/topSongsCtrl.js', 'src/js/similarCtrl.js', 'src/js/youtubeVideosCtrl.js', 'src/js/searchCtrl.js']
+                        'src/js/showBioCtrl.js', 'src/js/topSongsCtrl.js', 'src/js/similarCtrl.js', 'src/js/youtubeVideosCtrl.js', 'src/js/searchCtrl.js', 'src/js/favouriteListCtrl.js']
                 }
             }
         },

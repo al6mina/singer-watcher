@@ -3,7 +3,8 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
         item: $stateParams.item
 
     };
-    $('#artistMenu').append('<div id="preloader" class="preloader"><span class="spinner"></span></div>');
+    var preloader = SW.utils.getPreloader();
+    $('#artistMenu').append(preloader.htmlText);
     $scope.item = $stateParams.item;
     $scope.hide = false;
     $scope.header = 'Top songs by ' + $scope.item;
@@ -11,7 +12,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
 
     $http.get(url)
         .success(function (data) {
-            $('#preloader').remove();
+            preloader.stop();
             $scope.songs = {};
 
             if ((data.toptracks.total === '0')||(data === 'undefined')){
@@ -22,10 +23,6 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
                 $scope.songs = data.toptracks.track;
             }
         });
-    // NOT READY
-    $scope.add = function (song){
-
-    };
 
     // function to buy song
     $scope.buySong = function (song){
@@ -43,7 +40,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
 
         if (parentActive.children.length === 2){
             $(parentActive).append( '<div class="embed-responsive embed-responsive-16by9 wrapper"></div>');
-            $('.wrapper').append('<div id="preloader" class="subview preloader"><span class="spinner"></span></div>');
+            $('.wrapper').append(preloader.htmlText);
         }else {
             $(parentActive).find('.wrapper').remove();
         }
@@ -51,7 +48,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
         // MAIN FUNCTION WHICH GET VIDEO ID AND PUT FRAME ON THE PAGE
         $http.get(search_url)
             .success(function(data) {
-                $('#preloader').remove();
+                preloader.stop();
                 if (data.feed.entry === undefined) {
                       $(parentActive).find('.wrapper').html('<h3>Unfortunatelly, we  haven\'t  this data. Try another artist, please!</h3>');
 

@@ -44,7 +44,9 @@ body {
     padding: 1em;
     position: relative;
   }
-
+.highlighted{
+  border: 1px solid red;
+}
   @media (min-width: $largest) {
     .container-fluid {
       width: 90%;

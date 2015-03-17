@@ -1,7 +1,9 @@
 SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $http) {
     'use strict';
-    $('body').append('<div id="preloader" class="preloader"><span class="spinner"></span></div>');
-    (function showListDependOnLocation(){
+    var preloader = SW.utils.getPreloader();
+
+    $('body').append(preloader.htmlText);
+    function showListDependOnLocation(){
         var userLocation;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition( function(position){
@@ -27,14 +29,15 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $ht
         }
         return;
 
-    })();
+    }
 
     $scope.getListOfArtists = function (country){
         var getListUrl = SW.config.BASE_URL + '?method=geo.gettopartists&country=' + country + SW.config.API_KEY;
         $http.get(getListUrl)
             .success(function (data) {
-                $('#preloader').remove();
+                preloader.stop();
                 $scope.artists = data.topartists.artist;
             });
     };
+    showListDependOnLocation();
 }]);

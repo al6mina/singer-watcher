@@ -7,12 +7,18 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
             templateUrl: 'js/templates/artistsList.html',
             controller: 'ArtistsListCtrl'
         })
+        .state ('/favourite',{
+        url: '/favourite',
+        templateUrl: 'js/templates/favouriteList.html',
+        controller: 'FavouriteListCtrl'
+    })
 
         .state('/item', {
             url: '/:item',
             templateUrl: 'js/templates/artistMenu.html',
             controller: 'ShowBioCtrl'
         })
+
         .state('/item.bio', {
             url: '/bio',
             templateUrl: 'js/templates/biography.html'

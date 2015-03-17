@@ -1,0 +1,21 @@
+.favourite-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    overflow: hidden;
+
+    .thumbnail {
+      margin: 0;
+
+      .btn-group {
+        margin-right: 2%;
+      }
+      a {
+        font-size: 1.2em;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<h3 class="podcast-header"> {{header}}</h3>
+<section class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+    <ul class="favourite-list" id="favouriteList">
+        <li ng-repeat="title in songs track by $index">
+            <div class="thumbnail">
+                <div class="btn-group" role="group" aria-label="...">
+                    <a type="button" class="btn btn-default"  ng-click ="remove(title)">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </a>
+                    <a type="button" class="btn btn-default" ng-href="#/favourite" ng-click="buySong(title)">
+                        <span class="glyphicon glyphicon-usd"></span>
+                    </a>
+                    <a type="button" class="btn btn-default" ng-href="#/favourite" ng-click="video(title)">
+                        <span class="glyphicon glyphicon-facetime-video"></span>
+                    </a>
+                </div>
+                <a href="" class="artist-song">{{title}}</a>
+            </div>
+        </li>
+    </ul>
+</section>
+<section class="col-lg-7 col-md-7 col-sm-7 col-xs-12 subview" ui-view ng-animate="'animate'">
+    <div class="embed-responsive embed-responsive-16by9 wrapper"></div>
+</section>

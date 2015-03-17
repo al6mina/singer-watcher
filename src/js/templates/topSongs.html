@@ -1,10 +1,12 @@
 <h3 class="podcast-header"> {{header}}</h3>
 <ul class="all-songs-list">
-     <li class="col-lg-2 col-md-2 col-sm-3" ng-repeat="title in songs">
+     <li class="col-lg-2 col-md-2 col-sm-3" ng-repeat="title in songs track by $index">
         <div class="thumbnail">
             <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-heart" ng-click="add(title.name)"></span></button>
-                <a type="button" class="btn btn-default" ng-href="#/{{item}}/top-songs/{{title.name}}/buy-song" ng-click="buySong(title.name)">
+                <a type="button" class="btn btn-default" ng-href="#/favourite"  ng-click="add(title.name)"ng-controller="FavouriteListCtrl">
+                    <span class="glyphicon glyphicon-heart" ></span>
+                </a>
+                <a type="button" class="btn btn-default" ng-href="#/{{item}}/top-songs" ng-click="buySong(title.name)">
                     <span class="glyphicon glyphicon-usd"></span>
                 </a>
                 <a type="button" class="btn btn-default" ng-href="#/{{item}}/top-songs/{{title.name}}/video" ng-click="video(title.name,$event)">
