@@ -1,5 +1,4 @@
 SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
-
     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
     if (!$scope.songs || $scope.songs.length === 0){
         $scope.header = 'You can create your own list of the best songs! Go to the topSongs of every artist and add songs by click';
@@ -28,7 +27,6 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
                     temp.push(item);
                     localStorage.setItem('favourites', JSON.stringify(temp));
                 }
-
             } else {
                 item = item.split();
                 localStorage.setItem('favourites', JSON.stringify(item));
@@ -38,13 +36,13 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
 
         $scope.remove = function (song){
             var temp = JSON.parse(localStorage.getItem('favourites'));
+
             $.each(temp, function(index){
                 if(temp[index] === song){
                     temp.splice(index,1);
                     localStorage.setItem('favourites', JSON.stringify(temp));
                     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
                 }
-
                 return $scope.songs;
             });
         };
@@ -56,19 +54,22 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
 
     $scope.buySong = function(song){
         var songTitle = SW.config.BUYSONG + song;
+
         window.open (songTitle);
         return false;
     };
 
     $scope.video = function (song){
         var preloader = SW.utils.getPreloader();
-        $('.wrapper').append(preloader.htmlText);
         var search_url = SW.config.SEARCH_VIDEO + song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY;
+
+        $('.wrapper').html('');
+        $('.wrapper').append(preloader.htmlText);
         $http.get(search_url)
             .success(function(data) {
                 preloader.stop();
                 if (data.feed.entry === undefined) {
-                    $('.wrapper').html('<h3>Unfortunatelly, we  haven\'t  this data. Try another artist, please!</h3>');
+                    $('.wrapper').html('<h3>Unfortunatelly, we do not have this data. Try another artist, please!</h3>');
                     return false;
                 } else {
                     var srcVideoFull = data.feed.entry[0].id.$t;

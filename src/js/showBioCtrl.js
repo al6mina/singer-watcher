@@ -3,14 +3,14 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
     $scope.model = {
         item: $stateParams.item
     };
-   $('#searchForm input').val('');
-    $('#autosuggestion').hide();
 
+    $('#searchForm input').val('');
+    $('#autosuggestion').hide();
     $('#artistMenu').append('<div id="preloader" class="preloader"><span class="spinner"></span></div>');
     $scope.hide = true;
     $scope.item = $stateParams.item;
-
     var url = SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY;
+
     $http.get(url)
         .success(function (data) {
             $('#preloader').remove();

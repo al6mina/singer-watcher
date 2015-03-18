@@ -5,9 +5,11 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $ht
     $('body').append(preloader.htmlText);
     function showListDependOnLocation(){
         var userLocation;
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition( function(position){
                 var url = SW.config.LOCATION_URL[0]+  position.coords.latitude+','+ position.coords.longitude+SW.config.LOCATION_URL[1];
+
                 $http.get(url).
                     success ( function(data){
                     userLocation = data.results[0].formatted_address;
@@ -33,6 +35,7 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $ht
 
     $scope.getListOfArtists = function (country){
         var getListUrl = SW.config.BASE_URL + '?method=geo.gettopartists&country=' + country + SW.config.API_KEY;
+
         $http.get(getListUrl)
             .success(function (data) {
                 preloader.stop();
