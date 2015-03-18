@@ -5,7 +5,6 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
     }else {
         $scope.header = 'Your favourite list';
     }
-
     if (SW.utils.checkLocalStorage) {
         $scope.add = function (song) {
             var item = $scope.item + '-' + song;
