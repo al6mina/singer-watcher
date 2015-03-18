@@ -9,9 +9,9 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
     if (SW.utils.checkLocalStorage) {
         $scope.add = function (song) {
             var item = $scope.item + '-' + song;
-
+            var temp = [];
             if (localStorage.getItem('favourites')) {
-                var temp = JSON.parse(localStorage.getItem('favourites'));
+                temp = JSON.parse(localStorage.getItem('favourites'));
                 $.each(temp, function(index) {
                     if (temp[index] === item ) {
                         setTimeout(function() {
@@ -19,8 +19,6 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
                         }, 200);
                         item = '';
                         return false;
-                    } else {
-                        return item;
                     }
                 });
                 if (item) {
@@ -28,8 +26,8 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
                     localStorage.setItem('favourites', JSON.stringify(temp));
                 }
             } else {
-                item = item.split();
-                localStorage.setItem('favourites', JSON.stringify(item));
+                temp.push(item);
+                localStorage.setItem('favourites', JSON.stringify(temp));
             }
         };
 

@@ -1,6 +1,7 @@
 SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $http) {
     'use strict';
     var preloader = SW.utils.getPreloader();
+    var headerStart = 'Here you have a list of the most popular singers of ';
     $('body').append(preloader.htmlText);
 
     var getListOfArtists = function (country) {
@@ -17,20 +18,20 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $ht
             var pos = position.coords;
             var url = SW.config.LOCATION_URL[0] +  pos.latitude + ',' + pos.longitude + SW.config.LOCATION_URL[1];
             $http.get(url).
-                success (function(data){
+                success (function(data) {
                 userLocation = data.results[0].formatted_address;
                 userLocation = userLocation.substr( userLocation.lastIndexOf(',') + 2);
-                $scope.header = 'Here you have a list of the most popular singers of ' + userLocation;
+                $scope.header =  headerStart + userLocation;
                 getListOfArtists (userLocation);
             });
 
         }, function() {
-            $scope.header = 'Here you have a list of the most popular singers of default country ';
+            $scope.header = headerStart + 'default country';
             userLocation = 'Spain';
             getListOfArtists (userLocation);
         });
     } else {
-        $scope.header = 'Here you have a list of the most popular singers of default country ';
+        $scope.header = headerStart + 'default country';
         userLocation = 'Spain';
         getListOfArtists (userLocation);
     }
