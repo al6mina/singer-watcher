@@ -17,7 +17,7 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', function ($scope, $ht
             var pos = position.coords;
             var url = SW.config.LOCATION_URL[0] +  pos.latitude + ',' + pos.longitude + SW.config.LOCATION_URL[1];
             $http.get(url).
-                success (function(data){
+                success (function(data) {
                 userLocation = data.results[0].formatted_address;
                 userLocation = userLocation.substr( userLocation.lastIndexOf(',') + 2);
                 $scope.header = 'Here you have a list of the most popular singers of ' + userLocation;
