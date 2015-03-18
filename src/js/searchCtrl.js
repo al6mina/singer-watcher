@@ -5,17 +5,17 @@
 
 SW.swApp.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
     $('#autosuggestion').hide();
-    $scope.search = function (){
+    $scope.search = function () {
         $('#autosuggestion').html('<option disabled></option>');
         $scope.toSearch = $scope.item;
-        if ((!$scope.toSearch)||( $scope.toSearch.length < 3)){
+        if ((!$scope.toSearch)||( $scope.toSearch.length < 3)) {
             $('#autosuggestion').hide();
         }else {
-            var url = SW.config.BASE_URL + '?method=artist.search&artist='+  $scope.toSearch + SW.config.API_KEY;
+            var url = SW.config.BASE_URL + '?method=artist.search&artist=' +  $scope.toSearch + SW.config.API_KEY;
 
             $http.get(url)
-                .success(function(data){
-                    if (data.results['opensearch:totalResults']=== '0'){
+                .success(function(data) {
+                    if (data.results['opensearch:totalResults']=== '0') {
                         $('#autosuggestion').hide();
                         return false;
                     } else {
@@ -50,7 +50,7 @@ SW.swApp.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
         });
         $('#autosuggestion').show();
         $('#autosuggestion').change (function (){
-            $('#autosuggestion option:selected').each(function(){
+            $('#autosuggestion option:selected').each(function() {
                 $scope.item = $(this).text();
                 $('#searchForm input').val($(this).text());
                 $('#autosuggestion').hide();

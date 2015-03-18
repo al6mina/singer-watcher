@@ -4,7 +4,6 @@ SW.swApp.controller('SimilarCtrl', ['$scope', '$http','$stateParams' , function 
         item: $stateParams.item
     };
 
-
     $scope.item = $stateParams.item;
     $scope.header = 'Here you have the list of similar artists to ' + $scope.item;
     var preloader = SW.utils.getPreloader();

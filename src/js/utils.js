@@ -9,7 +9,7 @@ SW.utils = {
     getPreloader : function() {
         var preloader = {
             htmlText: '<div id="preloader" class="preloader"><span class="spinner"></span></div>',
-            stop: function () {
+            stop: function() {
                 $('#preloader').remove();
             }
         };

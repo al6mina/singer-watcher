@@ -15,7 +15,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
             preloader.stop();
             $scope.songs = {};
 
-            if ((data.toptracks.total === '0')||(data === 'undefined')){
+            if ((data.toptracks.total === '0')||(data === 'undefined')) {
                 $scope.header = 'There are not that data in our base';
             }else if (data.error) {
                 $scope.header = data.error.message;
@@ -25,7 +25,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
         });
 
     // function to buy song
-    $scope.buySong = function (song){
+    $scope.buySong = function (song) {
         this.song = song;
         var songTitle = SW.config.BUYSONG + $scope.item + ' ' + this.song;
 
@@ -38,7 +38,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
         var parentActive = $event.currentTarget.parentNode.parentNode;
         var search_url = SW.config.SEARCH_VIDEO + $scope.item + this.song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY;
 
-        if (parentActive.children.length === 2){
+        if (parentActive.children.length === 2) {
             $(parentActive).append( '<div class="embed-responsive embed-responsive-16by9 wrapper"></div>');
             $('.wrapper').append(preloader.htmlText);
         }else {
@@ -51,7 +51,6 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
                 preloader.stop();
                 if (data.feed.entry === undefined) {
                       $(parentActive).find('.wrapper').html('<h3>Unfortunatelly, we  haven\'t  this data. Try another artist, please!</h3>');
-
                     return false;
                 } else {
                     var srcVideoFull = data.feed.entry[0].id.$t;

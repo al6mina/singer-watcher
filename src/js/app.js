@@ -8,9 +8,9 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
             controller: 'ArtistsListCtrl'
         })
         .state ('/favourite',{
-        url: '/favourite',
-        templateUrl: 'js/templates/favouriteList.html',
-        controller: 'FavouriteListCtrl'
+             url: '/favourite',
+            templateUrl: 'js/templates/favouriteList.html',
+            controller: 'FavouriteListCtrl'
     })
 
         .state('/item', {
