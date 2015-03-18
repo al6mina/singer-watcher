@@ -81,29 +81,5 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
             });
     };
 
-    $scope.toggleVideoList = function(){
-        if (localStorage.getItem('favourites')) {
-            var temp = JSON.parse(localStorage.getItem('favourites'));
-            var videoIDArray = [];
-            $.each(temp, function (index) {
-                var search_url = SW.config.SEARCH_VIDEO + temp[index] + SW.config.STARTMAX + SW.config.YOUTUBE_KEY;
-                $http.get(search_url)
-                    .success(function (data) {
-                        if (data.feed.entry === undefined) {
-                            return false;
-                        } else {
-                            var srcVideoFull = data.feed.entry[0].id.$t;
-                            var srcVideoEnd = srcVideoFull.lastIndexOf('video:');
-                            var outputVideoID = srcVideoFull.substr(srcVideoEnd + 6);
-                            videoIDArray.push(outputVideoID);
-
-                        }
-                    });
-                console.log(videoIDArray);
-                return videoIDArray;
-            });
-            //$('.wrapper').html('<iframe  id="player" class="embed-responsive-item" src="' + SW.config.SONG_VIDEO+ '?listType=playlist&list='+videoIDArray + '"></iframe>');
-
-        } else return false;
-    };
+    
 }]);
