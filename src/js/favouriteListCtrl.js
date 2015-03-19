@@ -1,7 +1,9 @@
 SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
+
     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
     if (!$scope.songs || $scope.songs.length === 0) {
         $scope.header = 'You can create your own list of the best songs! Go to the topSongs of every artist and add songs by click';
+        $scope.hideMe = true;
     } else {
         $scope.header = 'Your favourite list';
     }
@@ -9,7 +11,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
         $scope.add = function (song) {
             var item = $scope.item + '-' + song;
             var temp = [];
-
+            $scope.hideMe = false;
             if (localStorage.getItem('favourites')) {
                 temp = JSON.parse(localStorage.getItem('favourites'));
                 $.each(temp, function (index) {

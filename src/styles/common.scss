@@ -25,11 +25,10 @@ body {
   z-index: 100500;
 }
 .subview .preloader{
-  position: relative;
-}
+  margin: 5em auto;
+  position: relative;}
 
 .preloader {
-  margin: 5em auto;
   .spinner {
     background: url('http://hello-site.ru//main/images/preloads/audio.svg') no-repeat;
     height: 5em;
@@ -40,25 +39,26 @@ body {
     width: 100%;
   }
 }
-  main {
-    background-color: $form-bg;
-    padding: 1em;
-    position: relative;
-  }
+main {
+  background-color: $form-bg;
+  padding: 1em;
+  position: relative;
+}
 .highlighted{
   border: 1px solid red;
 }
 .wrapper {
   background-color: $form-bg - 111;
+  position: relative;
 }
-  @media (min-width: $largest) {
-    .container-fluid {
-      width: 90%;
+@media (min-width: $largest) {
+  .container-fluid {
+    width: 90%;
 
-      main {
-        min-height: 700px;
-      }
+    main {
+      min-height: 700px;
     }
   }
+}
 
 
