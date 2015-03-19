@@ -6,6 +6,7 @@ SW.swApp.controller('YouTubeVideosCtrl', ['$scope', '$http','$stateParams' , fun
     $scope.item = $stateParams.item;
     var artist = $scope.item.replace(/\s+/g, '');
     var url = SW.config.SEARCH_CHANNEL + artist + SW.config.YOUTUBE_KEY;
+    console.log(url);
     $http.get(url)
         .success(function (data) {
             $scope.channels = data.items;

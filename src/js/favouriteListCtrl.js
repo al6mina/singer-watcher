@@ -84,23 +84,21 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
 
     var playlist;
     $scope.playlistVideo = function() {
+        $('.wrapper').html('');
         if (!playlist) {
             var songsTemp = JSON.parse(localStorage.getItem('favourites'));
             var songsVideoId = [];
-
             $.each(songsTemp, function(index) {
                 getVideoID(songsTemp[index], function(outputVideoID) {
                     songsVideoId.push(outputVideoID);
                     if (index === songsTemp.length - 1) {
                         playlist = songsVideoId.join(',');
-                        console.log(songsVideoId);
-                        console.log(playlist);
                         $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
                     }
                 });
-
             });
         } else {
+            $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
             return false;
         }
     };
