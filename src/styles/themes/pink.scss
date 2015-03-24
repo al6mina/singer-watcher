@@ -1,15 +1,26 @@
 // pink theme for all parties
 .pink {
+  background-color: $basic-inverse;
   font-family: 'Monotype Corsiva', monotype;
   font-size: 16px;
-  color: #777;
-
+  a.artist-song {
+    color: $pink-main;
+  }
   main{
-    background: url('../images/pink-bg.png') no-repeat 100% 100%;
+    background: #F2E9E9 url('../images/pink-bg.png') repeat-y 50% 0;
+    font-size: 1em;
+
+    .all-song-list li {
+      .thumbnail {
+        a {
+          color: $pink-main;
+        }
+      }
+    }
   }
 
   header.row, footer {
-    background-color: pink;
+    background-color: $pink-main;
     color: #aaa;
   }
 }

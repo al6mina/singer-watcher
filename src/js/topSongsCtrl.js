@@ -7,8 +7,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
     $('#artistMenu').append(preloader.htmlText);
     $scope.item = $stateParams.item;
     $scope.hide = false;
-    $scope.header = 'Top songs by ' + $scope.item;
-    var url = SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY;
+     var url = SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY;
 
     $http.get(url)
         .success(function (data) {

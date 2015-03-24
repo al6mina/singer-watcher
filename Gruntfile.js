@@ -100,13 +100,16 @@ module.exports = function(grunt) {
             main: {
                 options: {
                     semicolons: true,
-                    compress: false,
-                    mangle: false,
-                    beautify: true
+                    mangle: false
                 },
                 files: {
                     'public/js/screen.js': ['src/js/config.js', 'src/js/utils.js', 'src/js/app.js', 'src/js/themesCtrl.js', 'src/js/artistsListCtrl.js',
-                        'src/js/showBioCtrl.js', 'src/js/topSongsCtrl.js', 'src/js/similarCtrl.js', 'src/js/youtubeVideosCtrl.js', 'src/js/searchCtrl.js', 'src/js/favouriteListCtrl.js']
+                        'src/js/showBioCtrl.js', 'src/js/topSongsCtrl.js', 'src/js/similarCtrl.js', 'src/js/youtubeVideosCtrl.js', 'src/js/searchCtrl.js',
+                        'src/js/favouriteListCtrl.js', 'src/js/languageCtrl.js'],
+                    'public/js/vendors/frameworks.js':['bower_components/jquery/dist/jquery.js', 'bower_components/angular/angular.js', 'bower_components/angular-translate/angular-translate.js',
+                        'bower_components/angular-cookies/angular-cookies.js', 'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
+                        'bower_components/angular-animate/angular-animate.js', 'bower_components/angular-ui-router/release/angular-ui-router.js'
+                    ]
                 }
             }
         },

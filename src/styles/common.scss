@@ -50,6 +50,8 @@ main {
 .wrapper {
   background-color: $form-bg - 111;
   position: relative;
+  margin-top: 2em;
+  width: 100%;
 }
 @media (min-width: $largest) {
   .container-fluid {

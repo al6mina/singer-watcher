@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="swApp">
+<html ng-app="swApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,12 @@
         </div>
         <div class="col-lg-3 col-lg-offset-7 col-md-5 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-8 right">
             <ul class="nav-head">
-                <li><a ng-href="#/"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>
+                    <ul class="language" ng-controller="LanguageCtrl">
+                        <li><a href="" ng-click="toggleLang('ua_UA')">UA</a></li>
+                        <li><a href="" ng-click="toggleLang('en_EN')">EN</a></li>
+                    </ul>
+                </li>
                 <li><a ng-href="#/favourite"><i class="glyphicon glyphicon-heart"></i></a></li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle"  id="dropdownMenu1" data-toggle="dropdown">
@@ -34,9 +39,9 @@
         <div class="col-lg-4 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
             <form  id="searchForm" action="{{'#/'+item+'/bio'}}" name="search-form" ng-controller="SearchCtrl">
                 <div class="input-group">
-                    <input type="text" class="form-control"  required placeholder="Type the artist ..." ng-model="item" ng-change="search()">
+                    <input type="text" class="form-control"  placeholder={{'PLACEHOLDER'|translate}} ng-model="item" ng-change="search()" required>
               <span class="input-group-btn">
-                <a class="btn btn-default" type="submit" ng-class="{active: item.bio.selected}" ng-click="check()"  ng-href="#/{{item}}/bio">Search!</a>
+                <a class="btn btn-default" type="submit" ng-class="{active: item.bio.selected}" ng-click="check()"  ng-href="#/{{item}}/bio">{{ 'SEARCH' | translate }}</a>
               </span>
                 </div>
                 <select  id="autosuggestion" class="autosuggestion"></select>
@@ -47,20 +52,22 @@
         <div ui-view></div>
     </main>
     <footer class="row">
-        <p class="copyright col-lg-2 ol-md-2 col-sm-4 col-xs-12">&copy; Albina Kremlovska 2015</p>
-        <p class="col-lg-3 col-lg-offset-7 col-md-3 col-md-offset-8 col-sm-5 col-sm-offset-3 col-xs-12 social-container">
+        <p class="col-lg-2 col-md-3 col-sm-5 col-xs-6 social-container">
             <a href="https://www.facebook.com/" class="disabled"><span class="social icon fb"></span></a>
             <a href="https://twitter.com/" class="disabled"><span class="social  icon twit"></span></a>
             <a href="https://github.com/al6mina/singer-watcher/tree/SWver2.0"><span class="social icon github"></span></a>
         </p>
-
+        <p class="copyright col-lg-2 col-lg-offset-8  col-md-2 col-md-offset-7  col-sm-4 col-sm-offset-3 col-xs-6">&copy; Albina Kremlovska 2015</p>
     </footer>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+<script src="js/vendors/frameworks.js"></script>
 <script src="js/vendors/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script src="https://code.angularjs.org/1.3.14/angular-animate.min.js"></script>
-<script src="js/vendors/angular-ui-router.min.js"></script>
+<!--<script src="js/vendors/angular-translate.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-storage-cookie/2.6.1/angular-translate-storage-cookie.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-storage-local/2.6.1/angular-translate-storage-local.js"></script>-->
+<!--<script src="https://code.angularjs.org/1.3.14/angular-animate.min.js"></script>-->
+<!--<script src="js/vendors/angular-ui-router.min.js"></script>-->
 <script src="js/screen.js"></script>
 
 </body>

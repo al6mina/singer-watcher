@@ -25,6 +25,14 @@ header.row {
           color: $basic-color + 100;
         }
       }
+      .language {
+        li {
+          a {
+            font-size: 1em;
+            font-weight: 700;
+          }
+        }
+      }
     }
 
     .glyphicon {

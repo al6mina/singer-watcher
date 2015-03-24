@@ -57,7 +57,6 @@
   main.row {
     padding: .15em;
   }
-
   .podcast {
     li {
       display: block;
@@ -119,6 +118,7 @@
                                                     // query for different screen
 @media (min-width: $xssmall_begin)and (max-width: $small) {
   .podcast {
+    text-align: center;
     li {
       display: inline-block;
       padding: 0;

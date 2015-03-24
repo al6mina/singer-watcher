@@ -1,11 +1,9 @@
-SW.swApp.controller('SimilarCtrl', ['$scope', '$http','$stateParams' , function ($scope, $http, $stateParams) {
+SW.swApp.controller('SimilarCtrl', ['$scope', '$http','$stateParams', '$filter' , function ($scope, $http, $stateParams, $filter) {
     'use strict';
     $scope.model = {
         item: $stateParams.item
     };
-
     $scope.item = $stateParams.item;
-    $scope.header = 'Here you have the list of similar artists to ' + $scope.item;
     var preloader = SW.utils.getPreloader();
     var url = SW.config.BASE_URL + '?method=artist.getsimilar&artist=' + $scope.item + SW.config.API_KEY;
 
@@ -14,10 +12,19 @@ SW.swApp.controller('SimilarCtrl', ['$scope', '$http','$stateParams' , function 
         .success(function (data) {
             preloader.stop();
             if (data.error)  {
-              // do smth
+               $('.subview').html(data.message||'We don\'t have this data. Please, try again with another artist');
             } else {
                 $scope.artists = data.similarartists.artist;
             }
         });
+
+    $scope.$watch(
+        function() {
+            return $filter('translate')('SIMILAR_HEADER');
+        },
+        function(header) {
+            $scope.header = header + $scope.item;
+        }
+    );
 }]);
 

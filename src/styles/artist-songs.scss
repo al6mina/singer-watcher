@@ -10,6 +10,7 @@
     width: 100%;
 
     .thumbnail {
+      border-radius: 0;
       margin: 0;
       overflow: hidden;
       padding: 2%;
@@ -28,12 +29,11 @@
         text-decoration: none;
         width: 65%;
         word-wrap: break-word;
+        margin-bottom: 1em;
       }
       &:hover {
         background-color: #8699a4;
-      }
-      .embed-responsive {
-        width: 100%;
+        color: red;
       }
     }
   }
@@ -41,12 +41,11 @@
 
 // query for different screens
 @media (max-width: $xssmall) {
-   .podcast-header {
-     margin: 1em auto;
-     width: 90%;
-   }
+  .podcast-header {
+    margin: 1em auto;
+    width: 90%;
+  }
   .all-songs-list {
-
     margin-top: 1em;
     padding: .5em;
 
@@ -55,9 +54,11 @@
 
       .thumbnail {
         .artist-song, .btn-group {
-          font-size: 1.5em;
+          font-size: 1em;
+          margin: 0;
           text-align: center;
           width: 100%;
+
         }
       }
     }

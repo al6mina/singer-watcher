@@ -1,5 +1,5 @@
 /**
- * Created by Albina_Kremlovska on 3/13/2015.
+ * Created by Albina_Kremlovska
  * Controller which can autocomplete searching form
  */
 

@@ -1,12 +1,31 @@
-SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
-
+/* Controller for Favourite list
+    add, remove, buy song
+    watch song's video
+    play list of favourite songs
+*/
+SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$filter', function ($scope, $stateParams, $http, $filter) {
     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
     if (!$scope.songs || $scope.songs.length === 0) {
-        $scope.header = 'You can create your own list of the best songs! Go to the topSongs of every artist and add songs by click';
         $scope.hideMe = true;
+        $scope.$watch(
+            function() {
+                return $filter('translate')('header_favourite');
+            },
+            function(header) {
+                $scope.header = header;
+            }
+        );
     } else {
-        $scope.header = 'Your favourite list';
+        $scope.$watch(
+            function() {
+                return $filter('translate')('FAVOURITE');
+            },
+            function(header) {
+                $scope.header = header;
+            }
+        );
     }
+
     if (SW.utils.checkLocalStorage) {
         $scope.add = function (song) {
             var item = $scope.item + '-' + song;
@@ -27,6 +46,8 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
             if (item) {
                 temp.push(item);
                 localStorage.setItem('favourites', JSON.stringify(temp));
+                $scope.playlistVideo();
+
             }
         };
 
@@ -39,8 +60,9 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
                     localStorage.setItem('favourites', JSON.stringify(temp));
                     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
                 }
-                return $scope.songs;
+
             });
+            $scope.playlistVideo();
         };
 
     }else {
@@ -82,19 +104,20 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', fun
         });
     };
 
+    // Form the playlist of all favourite songs
     var playlist;
+    var songsTemp =[];
+
     $scope.playlistVideo = function() {
         $('.wrapper').html('');
         if (!playlist) {
-            var songsTemp = JSON.parse(localStorage.getItem('favourites'));
             var songsVideoId = [];
+            songsTemp = JSON.parse(localStorage.getItem('favourites'));
             $.each(songsTemp, function(index) {
                 getVideoID(songsTemp[index], function(outputVideoID) {
                     songsVideoId.push(outputVideoID);
-                    if (index === songsTemp.length - 1) {
-                        playlist = songsVideoId.join(',');
-                        $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
-                    }
+                    playlist = songsVideoId.join(',');
+                    $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
                 });
             });
         } else {

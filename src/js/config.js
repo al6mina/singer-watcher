@@ -12,6 +12,8 @@
    SEARCH_VIDEO: 'http://gdata.youtube.com/feeds/api/videos?alt=json&q=',
    STARTMAX: '&start-index=1&max-results=25&v=2',
    SONG_VIDEO: 'http://www.youtube.com/embed/',
+   TWITTER_BTN_start: '//platform.twitter.com/widgets/follow_button.html?screen_name=',
+   TWITTER_BTN_end : '&lang=en&show_count=false" style="width:300px; height:20px;" allowtransparency="true" frameborder="0" scrolling="no"',
    BUYSONG: 'http://www.amazon.com/gp/search?ie=UTF8&keywords=',
    themes : ['default', 'pink', 'black']
   };

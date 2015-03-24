@@ -6,7 +6,8 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
     var preloader = SW.utils.getPreloader();
     $('#searchForm input').val('');
     $('#autosuggestion').hide();
-    $('.artist-bio').append(preloader.htmlText);
+    $('body').append(preloader.htmlText);
+
     $scope.hide = true;
     $scope.item = $stateParams.item;
     var url = SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY;
@@ -26,9 +27,7 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
                     src: data.artist.image[3]['#text'],
                     text: data.artist.bio.content
                 };
-               
-                $('#follow').html('<iframe src="//platform.twitter.com/widgets/follow_button.html?screen_name=' + SW.utils.transliterate($scope.item.toLowerCase()) + '&lang=en&show_count=false" style="width:300px; height:20px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>');
-
+                $('#follow').html('<iframe src="' + SW.config.TWITTER_BTN_start + SW.utils.transliterate($scope.item.toLowerCase()) + SW.config.TWITTER_BTN_end + '></iframe>');
             }
         });
 }]);
