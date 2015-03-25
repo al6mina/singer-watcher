@@ -27,3 +27,9 @@
     }
   }
 
+// query for different screens
+@media (max-width: $small) {
+  .favourite-list {
+    margin-bottom: 2em;
+  }
+}

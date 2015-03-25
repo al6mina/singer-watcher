@@ -29,9 +29,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" >
                         <li role="presentation" ng-repeat="theme in themes">
-                            <label>
-                                <input type ="radio" name="stylePage" role="menuitem" value= {{theme}} ng-model="active.theme" > {{theme}}
-                            </label>
+                            <label> <input type ="radio" name="stylePage" role="menuitem" value= {{theme}} ng-model="active.theme" ><span>{{theme}}</span> </label>
                         </li>
                     </ul>
                 </li>

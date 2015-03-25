@@ -3,8 +3,12 @@
   background-color: $basic-inverse;
   font-family: 'Monotype Corsiva', monotype;
   font-size: 16px;
+
   a.artist-song {
-    color: $pink-main;
+    color: #FF89A4;
+  }
+  &:hover {
+    color: #FF89A4;
   }
   main{
     background: #F2E9E9 url('../images/pink-bg.png') repeat-y 50% 0;

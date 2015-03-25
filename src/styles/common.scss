@@ -50,7 +50,6 @@ main {
 .wrapper {
   background-color: $form-bg - 111;
   position: relative;
-  margin-top: 2em;
   width: 100%;
 }
 @media (min-width: $largest) {
@@ -61,6 +60,15 @@ main {
       min-height: 700px;
     }
   }
+}
+@media only screen
+and (min-device-width: $small)
+and (max-device-width: $portrait_tablet)
+and (orientation: portrait) {
+  main {
+    min-height: 750px;
+  }
+
 }
 
 
