@@ -10,7 +10,7 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
 
     $scope.hide = true;
     $scope.item = $stateParams.item;
-    var url = SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY;
+    var url = encodeURI(SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY);
 
     $http.get(url)
         .success(function (data) {
@@ -33,17 +33,16 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
 
     $scope.videoChannel = function (){
         var artist = $scope.item.replace(/\s+/g, '');
-        var url = SW.config.SEARCH_CHANNEL + artist + SW.config.YOUTUBE_KEY;
-        console.log(url);
+        var url = encodeURI(SW.config.SEARCH_CHANNEL + artist + SW.config.YOUTUBE_KEY);
         $http.get(url)
             .success(function (data) {
                 $scope.channels = data.items;
-                $scope.open_url = SW.config.QUERY_URL + artist + SW.config.YOUTUBE_KEY;
+                $scope.open_url = encodeURI(SW.config.QUERY_URL + artist + SW.config.YOUTUBE_KEY);
                 for (var i = 0; i < $scope.channels.length; i++) {
                     var re = new RegExp(artist + '*', 'i');
 
                     if (re.test($scope.channels[i].snippet.channelTitle)) {
-                        $scope.open_url = SW.config.CHANNEL_URL +  $scope.channels[i].snippet.channelId;
+                        $scope.open_url = encodeURI(SW.config.CHANNEL_URL +  $scope.channels[i].snippet.channelId);
                         break;
                     }
                 }

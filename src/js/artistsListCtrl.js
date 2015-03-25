@@ -14,7 +14,7 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', '$translate', '$filte
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = position.coords;
-            var url = SW.config.LOCATION_URL[0] +  pos.latitude + ',' + pos.longitude + SW.config.LOCATION_URL[1];
+            var url = encodeURI(SW.config.LOCATION_URL[0] +  pos.latitude + ',' + pos.longitude + SW.config.LOCATION_URL[1]);
             $http.get(url).
                 success (function(data) {
                 var userLocation = data.results[0].formatted_address;

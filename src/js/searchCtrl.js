@@ -11,7 +11,7 @@ SW.swApp.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
         if ((!$scope.toSearch)||( $scope.toSearch.length < 3)) {
             $('#autosuggestion').hide();
         }else {
-            var url = SW.config.BASE_URL + '?method=artist.search&artist=' +  $scope.toSearch + SW.config.API_KEY;
+            var url = encodeURI(SW.config.BASE_URL + '?method=artist.search&artist=' +  $scope.toSearch + SW.config.API_KEY);
 
             $http.get(url)
                 .success(function(data) {

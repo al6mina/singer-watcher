@@ -28,7 +28,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
 
     if (SW.utils.checkLocalStorage) {
         $scope.add = function (song) {
-            var item = $scope.item + '-' + song;
+            var item = $scope.item + ' - ' + song;
             var temp = [];
             $scope.hideMe = false;
             if (localStorage.getItem('favourites')) {
@@ -60,9 +60,8 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
                     localStorage.setItem('favourites', JSON.stringify(temp));
                     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
                 }
-
             });
-            $scope.playlistVideo();
+            $('.wrapper').html('');
         };
 
     }else {
@@ -70,16 +69,17 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
         return false;
     }
 
-    $scope.buySong = function(song){
-        var songTitle = SW.config.BUYSONG + song;
+    $scope.buySong = function(song, $event){
+        var songTitle = encodeURI(SW.config.BUYSONG + song);
 
         window.open (songTitle);
+        $event.stopPropagation();
         return false;
     };
 
     // function to get videoID
     var getVideoID = function  (song, callback) {
-        var search_url = SW.config.SEARCH_VIDEO + song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY;
+        var search_url = encodeURI(SW.config.SEARCH_VIDEO + song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY);
 
         $http.get(search_url)
             .success(function(data) {

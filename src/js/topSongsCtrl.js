@@ -7,7 +7,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
     $('#artistMenu').append(preloader.htmlText);
     $scope.item = $stateParams.item;
     $scope.hide = false;
-     var url = SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY;
+     var url = encodeURI(SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY);
 
     $http.get(url)
         .success(function (data) {
@@ -26,7 +26,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
     // function to buy song
     $scope.buySong = function (song, $event) {
         this.song = song;
-        var songTitle = SW.config.BUYSONG + $scope.item + ' ' + this.song;
+        var songTitle = encodeURI(SW.config.BUYSONG + $scope.item + ' ' + this.song);
 
         window.open (songTitle);
         $event.stopPropagation();
@@ -37,7 +37,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
     $scope.video = function (song, $event) {
         this.song = song;
         var parentActive = $event.currentTarget.parentNode.parentNode;
-        var search_url = SW.config.SEARCH_VIDEO + $scope.item + this.song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY;
+        var search_url = encodeURI(SW.config.SEARCH_VIDEO + $scope.item + this.song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY);
 
         if (parentActive.children.length === 2) {
             $(parentActive).append( '<div class="embed-responsive embed-responsive-16by9 wrapper"></div>');
