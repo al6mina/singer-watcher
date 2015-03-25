@@ -22,7 +22,7 @@
         overflow: hidden;
         width: 30%;
       }
-      .artist-song {
+      a.artist-song {
         display: block;
         font-size: 1.5em;
         float: left;
@@ -33,7 +33,10 @@
       }
       &:hover {
         background-color: #8699a4;
-        color: red;
+        color: #337ab7;
+      }
+      a:hover {
+        color: #337ab7;
       }
     }
   }
@@ -53,12 +56,11 @@
       padding: 0;
 
       .thumbnail {
-        .artist-song, .btn-group {
-          font-size: 1em;
+        a.artist-song, .btn-group {
+          font-size: 1.2em;
           margin: 0;
           text-align: center;
           width: 100%;
-
         }
       }
     }

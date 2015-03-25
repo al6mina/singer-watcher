@@ -6,7 +6,7 @@
 SW.swApp.controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
     $('#autosuggestion').hide();
     $scope.search = function () {
-        $('#autosuggestion').html('<option disabled></option>');
+        $('#autosuggestion').html('<option class="caret"></option>');
         $scope.toSearch = $scope.item;
         if ((!$scope.toSearch)||( $scope.toSearch.length < 3)) {
             $('#autosuggestion').hide();

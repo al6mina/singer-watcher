@@ -40,11 +40,8 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', f
             url: '/similar-artists',
             templateUrl: 'js/templates/artistsList.html',
             controller: 'SimilarCtrl'
-        })
-        .state('/item.YouTubeVideos', {
-            url: '/youtube-videos',
-            controller: 'YouTubeVideosCtrl'
         });
+
     $urlRouterProvider.otherwise('/');
 
 // translate provider

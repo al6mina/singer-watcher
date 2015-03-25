@@ -30,6 +30,27 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
                 $('#follow').html('<iframe src="' + SW.config.TWITTER_BTN_start + SW.utils.transliterate($scope.item.toLowerCase()) + SW.config.TWITTER_BTN_end + '></iframe>');
             }
         });
+
+    $scope.videoChannel = function (){
+        var artist = $scope.item.replace(/\s+/g, '');
+        var url = SW.config.SEARCH_CHANNEL + artist + SW.config.YOUTUBE_KEY;
+        console.log(url);
+        $http.get(url)
+            .success(function (data) {
+                $scope.channels = data.items;
+                $scope.open_url = SW.config.QUERY_URL + artist + SW.config.YOUTUBE_KEY;
+                for (var i = 0; i < $scope.channels.length; i++) {
+                    var re = new RegExp(artist + '*', 'i');
+
+                    if (re.test($scope.channels[i].snippet.channelTitle)) {
+                        $scope.open_url = SW.config.CHANNEL_URL +  $scope.channels[i].snippet.channelId;
+                        break;
+                    }
+                }
+                window.open($scope.open_url);
+            });
+
+    };
 }]);
 
 

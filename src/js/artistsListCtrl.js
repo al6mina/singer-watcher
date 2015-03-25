@@ -3,7 +3,7 @@ SW.swApp.controller('ArtistsListCtrl', ['$scope', '$http', '$translate', '$filte
     var preloader = SW.utils.getPreloader();
     $('body').append(preloader.htmlText);
     var getListOfArtists = function (country) {
-        var getListUrl = SW.config.BASE_URL + '?method=geo.gettopartists&country=' + country + SW.config.API_KEY;
+        var getListUrl = encodeURI(SW.config.BASE_URL + '?method=geo.gettopartists&country=' + country + SW.config.API_KEY);
         $http.get(getListUrl)
             .success(function (data) {
                 preloader.stop();

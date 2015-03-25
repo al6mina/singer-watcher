@@ -24,12 +24,14 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
         });
 
     // function to buy song
-    $scope.buySong = function (song) {
+    $scope.buySong = function (song, $event) {
         this.song = song;
         var songTitle = SW.config.BUYSONG + $scope.item + ' ' + this.song;
 
         window.open (songTitle);
+        $event.stopPropagation();
         return false;
+
     };
 
     $scope.video = function (song, $event) {

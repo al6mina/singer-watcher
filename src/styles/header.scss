@@ -57,7 +57,9 @@ header.row {
   .autosuggestion {
     border-radius: 5%;
     display: block;
+    position: relative;
     width: 100%;
+    z-index: 10;
   }
 }
 
@@ -67,7 +69,23 @@ header.row {
       max-width: 100%;
     }
     .nav-head {
+      padding: 0;
+      vertical-align: middle;
       li {
+        display: inline-block;
+        max-width: 30%;
+        margin: 1%;
+
+        .language {
+          display: block;
+          overflow: hidden;
+          padding: 0;
+          height: 36px;
+          li {
+            text-align: center;
+            max-width: 100%;
+          }
+        }
         a {
           font-size: 1.7em;
         }
