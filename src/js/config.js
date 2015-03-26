@@ -4,7 +4,7 @@
    LOCATION_URL: ['https://maps.googleapis.com/maps/api/geocode/json?latlng=', '&sensor=false&language=en'],
    BASE_URL: 'http://ws.audioscrobbler.com/2.0/',
    API_KEY: '&api_key=a1b827bb5962ea81025679fd8869f5ed&format=json',
-   LIMIT: '&limit=20',
+   LIMIT: '&limit=30',
    YOUTUBE_KEY: '&key=AIzaSyB8EY8sdC4tvarZjkP5b6un0tu0r2At3H4',
    QUERY_URL: 'https://www.youtube.com/results?search_query=',
    CHANNEL_URL: 'https://www.youtube.com/channel/',

@@ -69,20 +69,22 @@
   }
   .artist-menu {
     text-align: center;
-
+      h3 {
+        width: 90%;
+      }
     a {
       color: white;
       display: inline-block;
-      height: 50px;
+      height: 40px;
       margin-right: 2%;
       overflow: hidden;
       padding: .3em;
-      width: 50px;
+      width: 40px;
       word-wrap: break-word;
 
       span {
         color: black;
-        font-size: 2.3em;
+        font-size: 2em;
         margin: 0 auto;
       }
     }

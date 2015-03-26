@@ -47,13 +47,14 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http', '$filte
 
     // function to watch video
     $scope.video = function (song, $event) {
+        preloader.stop();
         this.song = song;
         var parentActive = $event.currentTarget.parentNode.parentNode;
         var item = $scope.item + this.song;
 
         if (parentActive.children.length === 2) {
             $(parentActive).append( '<div class="embed-responsive embed-responsive-16by9 wrapper"></div>');
-            $('.wrapper').append(preloader.htmlText);
+            $(parentActive). find('.wrapper').append(preloader.htmlText);
         }else {
             $(parentActive).find('.wrapper').remove();
         }
