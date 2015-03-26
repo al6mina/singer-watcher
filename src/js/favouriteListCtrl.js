@@ -37,7 +37,10 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
                     if (temp[index] === item) {
                         setTimeout(function () {
                             $('#favouriteList li:eq(' + index + ')').addClass('highlighted');
-                        }, 200);
+                        }, 50);
+                        setTimeout(function () {
+                            $('#favouriteList li:eq(' + index + ')').removeClass('highlighted');
+                        }, 2000);
                         item = '';
                         return false;
                     }
@@ -105,7 +108,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
         }, $http);
     };
 
-        // Form the playlist of all favourite songs
+    // Form the playlist of all favourite songs
     $scope.playlistVideo = function() {
         $('.wrapper').html('');
         if (!playlist) {

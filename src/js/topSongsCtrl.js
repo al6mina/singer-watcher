@@ -1,14 +1,12 @@
 SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http', '$filter' , function ($scope, $stateParams, $http, $filter) {
     $scope.model = {
         item: $stateParams.item
-
     };
 
     var preloader = SW.utils.getPreloader();
     var ERROR_video;
     $scope.item = $stateParams.item;
-    $scope.hide = false;
-    var url = encodeURI(SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY);
+     var url = encodeURI(SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY);
 
     $scope.$watch(
         function() {
@@ -31,6 +29,7 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http', '$filte
                 $scope.header = data.error.message;
             } else {
                 $scope.songs = data.toptracks.track;
+
             }
         });
 

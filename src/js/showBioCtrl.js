@@ -9,7 +9,7 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter'
     $('#autosuggestion').hide();
     $('body').append(preloader.htmlText);
 
-    $scope.hide = true;
+
     $scope.item = $stateParams.item;
     var url = encodeURI(SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY);
 
@@ -24,12 +24,16 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter'
                         return $filter('translate')('ERROR');
                     },
                     function(msg) {
+
                         $scope.artistBio.text = msg;
                     }
                 );
                 $('#artistMenu').hide();
+
             } else {
                 $('#artistMenu').show();
+                $scope.hide = true;
+
                 $scope.artistBio = {
                     name: data.artist.name,
                     src: data.artist.image[3]['#text'],
