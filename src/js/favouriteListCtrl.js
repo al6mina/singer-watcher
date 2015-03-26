@@ -1,8 +1,8 @@
 /* Controller for Favourite list
-    add, remove, buy song
-    watch song's video
-    play list of favourite songs
-*/
+ add, remove, buy song
+ watch song's video
+ play list of favourite songs
+ */
 SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$filter', function ($scope, $stateParams, $http, $filter) {
     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
     if (!$scope.songs || $scope.songs.length === 0) {
@@ -60,8 +60,10 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
                     localStorage.setItem('favourites', JSON.stringify(temp));
                     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
                 }
+
             });
             $('.wrapper').html('');
+            songsTemp = [];
         };
 
     }else {
@@ -69,6 +71,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
         return false;
     }
 
+    // buy song
     $scope.buySong = function(song, $event){
         var songTitle = encodeURI(SW.config.BUYSONG + song);
 
@@ -77,48 +80,43 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
         return false;
     };
 
-    // function to get videoID
-    var getVideoID = function  (song, callback) {
-        var search_url = encodeURI(SW.config.SEARCH_VIDEO + song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY);
+    //  functions to watch song's video or user's playlist
 
-        $http.get(search_url)
-            .success(function(data) {
-                var outputVideoID = '';
-                if (data.feed.entry === undefined) {
-                    $('.wrapper').html('<h3>Unfortunatelly, we do not have this data. Try another artist, please!</h3>');
-                    return false;
-                }
-                var srcVideoFull = data.feed.entry[0].id.$t;
-                outputVideoID = srcVideoFull.substr(srcVideoFull.lastIndexOf('video:') + 6);
-                callback(outputVideoID);
-            });
-    };
+    var ERROR_video;
+    var playlist;
+    var songsTemp = [];
+
+    $scope.$watch(
+        function() {
+            return $filter('translate')('ERROR_video');
+        },
+        function(msg) {
+            ERROR_video = msg;
+        }
+    );
 
     $scope.video = function (song) {
         var preloader = SW.utils.getPreloader();
         $('.wrapper').html('');
         $('.wrapper').append(preloader.htmlText);
-        getVideoID(song, function(outputVideoID){
+        SW.utils.getVideoId(song, ERROR_video, function(outputVideoID){
             preloader.stop();
             $('.wrapper').html('<iframe  class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + outputVideoID + '"></iframe>');
-        });
+        }, $http);
     };
 
-    // Form the playlist of all favourite songs
-    var playlist;
-    var songsTemp =[];
-
+        // Form the playlist of all favourite songs
     $scope.playlistVideo = function() {
         $('.wrapper').html('');
         if (!playlist) {
             var songsVideoId = [];
             songsTemp = JSON.parse(localStorage.getItem('favourites'));
             $.each(songsTemp, function(index) {
-                getVideoID(songsTemp[index], function(outputVideoID) {
+                SW.utils.getVideoId(songsTemp[index], ERROR_video, function(outputVideoID) {
                     songsVideoId.push(outputVideoID);
                     playlist = songsVideoId.join(',');
                     $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
-                });
+                }, $http);
             });
         } else {
             $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');

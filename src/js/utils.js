@@ -29,5 +29,19 @@ SW.utils = {
                 return text.replace(/(\+)?\s+/g, '');
             };
         }
-    )()
+    )(),
+    getVideoId: function  (song, ERROR_video, callback,$http) {
+        var search_url = encodeURI(SW.config.SEARCH_VIDEO + song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY);
+        $http.get(search_url)
+            .success(function(data) {
+                var outputVideoID = '';
+                if (data.feed.entry === undefined) {
+                    $('.wrapper').html('<h3>' + ERROR_video + '</h3>');
+                    return false;
+                }
+                var srcVideoFull = data.feed.entry[0].id.$t;
+                outputVideoID = srcVideoFull.substr(srcVideoFull.lastIndexOf('video:') + 6);
+                callback(outputVideoID);
+            });
+    }
 };

@@ -1,8 +1,9 @@
-SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
+SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter', function ($scope, $stateParams, $http, $filter) {
     'use strict';
     $scope.model = {
         item: $stateParams.item
     };
+
     var preloader = SW.utils.getPreloader();
     $('#searchForm input').val('');
     $('#autosuggestion').hide();
@@ -18,7 +19,14 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', function 
             $scope.artistBio = {};
             if ((data.error === 6) || (data.artist.image[2]['#text'] === '')) {
                 $scope.artistBio.src = 'images/nodata.png';
-                $scope.artistBio.text = data.message||'We don\'t have this data. Please, try again with another artist';
+                $scope.$watch(
+                    function() {
+                        return $filter('translate')('ERROR');
+                    },
+                    function(msg) {
+                        $scope.artistBio.text = msg;
+                    }
+                );
                 $('#artistMenu').hide();
             } else {
                 $('#artistMenu').show();

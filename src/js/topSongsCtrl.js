@@ -1,19 +1,30 @@
-SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , function ($scope, $stateParams, $http) {
+SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http', '$filter' , function ($scope, $stateParams, $http, $filter) {
     $scope.model = {
         item: $stateParams.item
 
     };
+
     var preloader = SW.utils.getPreloader();
-    $('#artistMenu').append(preloader.htmlText);
+    var ERROR_video;
     $scope.item = $stateParams.item;
     $scope.hide = false;
-     var url = encodeURI(SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY);
+    var url = encodeURI(SW.config.BASE_URL +'?method=artist.gettoptracks&artist=' + $scope.item + SW.config.LIMIT + SW.config.API_KEY);
 
+    $scope.$watch(
+        function() {
+            return $filter('translate')('ERROR_video');
+        },
+        function(msg) {
+            ERROR_video = msg;
+        }
+    );
+
+    // get top tracks of this artist ($scope.item )
+    $('#artistMenu').append(preloader.htmlText);
     $http.get(url)
         .success(function (data) {
             preloader.stop();
             $scope.songs = {};
-
             if ((data.toptracks.total === '0')||(data === 'undefined')) {
                 $scope.header = 'There are not that data in our base';
             }else if (data.error) {
@@ -34,10 +45,11 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
 
     };
 
+    // function to watch video
     $scope.video = function (song, $event) {
         this.song = song;
         var parentActive = $event.currentTarget.parentNode.parentNode;
-        var search_url = encodeURI(SW.config.SEARCH_VIDEO + $scope.item + this.song + SW.config.STARTMAX + SW.config.YOUTUBE_KEY);
+        var item = $scope.item + this.song;
 
         if (parentActive.children.length === 2) {
             $(parentActive).append( '<div class="embed-responsive embed-responsive-16by9 wrapper"></div>');
@@ -46,21 +58,11 @@ SW.swApp.controller ('TopSongsCtrl', ['$scope', '$stateParams', '$http' , functi
             $(parentActive).find('.wrapper').remove();
         }
 
-        // MAIN FUNCTION WHICH GET VIDEO ID AND PUT FRAME ON THE PAGE
-        $http.get(search_url)
-            .success(function(data) {
-                preloader.stop();
-                if (data.feed.entry === undefined) {
-                      $(parentActive).find('.wrapper').html('<h3>Unfortunatelly, we  haven\'t  this data. Try another artist, please!</h3>');
-                    return false;
-                } else {
-                    var srcVideoFull = data.feed.entry[0].id.$t;
-                    var srcVideoEnd = srcVideoFull.lastIndexOf('video:');
-                    var outputVideoID = srcVideoFull.substr(srcVideoEnd + 6);
+        SW.utils.getVideoId(item, ERROR_video, function (id){
+            preloader.stop();
+            $(parentActive).find('.wrapper')
+                .html('<iframe  class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + id + '"></iframe>');
+        }, $http);
 
-                    $(parentActive).find('.wrapper')
-                        .html('<iframe  class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + outputVideoID + '"></iframe>');
-                }
-            });
     };
 }]);

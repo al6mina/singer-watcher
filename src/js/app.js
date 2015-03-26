@@ -58,6 +58,7 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', f
             'youtube_btn': 'Video on Youtube',
             'FAVOURITE': 'Favourite song\'s list',
             'ERROR': 'We don\'t have this data. Please, try again with another artist',
+            'ERROR_video': 'We don\'t have this video. Please, try again with another song',
             'PLAYLIST': 'Play list',
             'header_favourite' :'You can create your own list of the best songs! Go to the topSongs of every artist and add songs by one click'
         })
@@ -73,6 +74,7 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', f
             'youtube_btn': 'Відео на Youtube',
             'FAVOURITE': 'Список улюблених пісень',
             'ERROR': 'На жаль, інформація відсутня. Спробуйте ще раз з іншими даними!',
+            'ERROR_video': 'На жаль, у нас немає цього відео. Спробуйте іншу пісню, будь-ласка',
             'PLAYLIST': 'Улюблені відео',
             'header_favourite' :' Ви можете створити власний список із найкращих пісень! Перейдіть на Топ пісень будь-якого артиста та додайте пісню одним кліком'
         });

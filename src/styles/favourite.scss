@@ -19,17 +19,34 @@
     }
   }
 }
-  .playlist {
-    text-align: right;
-
-    .btn {
-      margin: 1em;
+.playlist {
+  text-align: right;
+  .wrapper {
+    .preloader {
+      margin-top: 2em;
+      position: relative;
     }
   }
+
+  .btn {
+    margin: 1em;
+  }
+}
 
 // query for different screens
 @media (max-width: $small) {
   .favourite-list {
     margin-bottom: 2em;
+
+    li {
+      .thumbnail{
+        a {
+          font-size: .7em;
+        }
+        a.artist-song {
+          font-size: 1em;
+        }
+      }
+    }
   }
 }
