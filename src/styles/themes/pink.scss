@@ -5,15 +5,22 @@
   font-size: 16px;
 
   a.artist-song {
-    color: #FF89A4;
+    color: $dark-pink;
   }
   &:hover {
-    color: #FF89A4;
+    color: $dark-pink;
   }
   main{
     background: #F2E9E9 url('../images/pink-bg.png') repeat-y 50% 0;
     font-size: 1em;
 
+    .podcast {
+      li {
+        .thumbnail {
+          background-color: $pink-main;
+        }
+      }
+    }
     .all-song-list li {
       .thumbnail {
         a {

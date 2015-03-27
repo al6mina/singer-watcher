@@ -3,6 +3,7 @@
  watch song's video
  play list of favourite songs
  */
+
 SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$filter', function ($scope, $stateParams, $http, $filter) {
     $scope.songs = JSON.parse(localStorage.getItem('favourites'));
     if (!$scope.songs || $scope.songs.length === 0) {
@@ -22,6 +23,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
             },
             function(header) {
                 $scope.header = header;
+
             }
         );
     }
@@ -56,7 +58,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
 
         $scope.remove = function (song) {
             var temp = JSON.parse(localStorage.getItem('favourites'));
-
+            $('.wrapper').html('');
             $.each(temp, function(index) {
                 if(temp[index] === song) {
                     temp.splice(index, 1);
@@ -65,8 +67,8 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
                 }
 
             });
-            $('.wrapper').html('');
             songsTemp = [];
+
         };
 
     }else {
@@ -75,6 +77,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
     }
 
     // buy song
+    
     $scope.buySong = function(song, $event){
         var songTitle = encodeURI(SW.config.BUYSONG + song);
 
@@ -111,19 +114,26 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
     // Form the playlist of all favourite songs
     $scope.playlistVideo = function() {
         $('.wrapper').html('');
-        if (!playlist) {
-            var songsVideoId = [];
-            songsTemp = JSON.parse(localStorage.getItem('favourites'));
-            $.each(songsTemp, function(index) {
-                SW.utils.getVideoId(songsTemp[index], ERROR_video, function(outputVideoID) {
-                    songsVideoId.push(outputVideoID);
-                    playlist = songsVideoId.join(',');
-                    $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
-                }, $http);
-            });
-        } else {
-            $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
+        var songsVideoId = [];
+        songsTemp = JSON.parse(localStorage.getItem('favourites'));
+        if(songsTemp.length === 0){
+            $scope.$watch(
+                function() {
+                    return $filter('translate')('header_favourite');
+                },
+                function(header) {
+                    $scope.header = header;
+                }
+            );
             return false;
         }
+        $.each(songsTemp, function(index) {
+            SW.utils.getVideoId(songsTemp[index], ERROR_video, function(outputVideoID) {
+                songsVideoId.push(outputVideoID);
+                playlist = songsVideoId.join(',');
+                $('.wrapper').html('<iframe class="embed-responsive-item" src="' + SW.config.SONG_VIDEO + '?playlist=' + playlist + '"></iframe>');
+            }, $http);
+        });
+        return false;
     };
 }]);
