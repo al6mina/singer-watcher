@@ -1,4 +1,4 @@
-SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter', function ($scope, $stateParams, $http, $filter) {
+SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter', '$location', function ($scope, $stateParams, $http, $filter, $location) {
     'use strict';
     $scope.model = {
         item: $stateParams.item
@@ -11,6 +11,8 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter'
 
 
     $scope.item = $stateParams.item;
+
+
     var url = encodeURI(SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY);
 
     $http.get(url)

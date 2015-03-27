@@ -11,20 +11,28 @@ SW.swApp.controller('SimilarCtrl', ['$scope', '$http','$stateParams', '$filter' 
     $http.get(url)
         .success(function (data) {
             preloader.stop();
-            if (data.error)  {
-               $('.subview').html(data.message||'We don\'t have this data. Please, try again with another artist');
+            if (data.error || !data.similarartists.artist[0].name)  {
+                $scope.$watch(
+                    function() {
+                        return $filter('translate')('ERROR');
+                    },
+                    function(header) {
+                        $scope.header = header;
+                    }
+                );
             } else {
                 $scope.artists = data.similarartists.artist;
+                $scope.$watch(
+                    function() {
+                        return $filter('translate')('SIMILAR_HEADER');
+                    },
+                    function(header) {
+                        $scope.header = header + $scope.item;
+                    }
+                );
             }
         });
 
-    $scope.$watch(
-        function() {
-            return $filter('translate')('SIMILAR_HEADER');
-        },
-        function(header) {
-            $scope.header = header + $scope.item;
-        }
-    );
+
 }]);
 

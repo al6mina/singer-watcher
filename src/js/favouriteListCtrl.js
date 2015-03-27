@@ -77,7 +77,7 @@ SW.swApp.controller('FavouriteListCtrl', ['$scope', '$stateParams', '$http', '$f
     }
 
     // buy song
-    
+
     $scope.buySong = function(song, $event){
         var songTitle = encodeURI(SW.config.BUYSONG + song);
 
