@@ -1,0 +1,8 @@
+node_modules
+.sass-cache
+bower_components
+.idea
+public
+sprite.scss
+sprite.png
+screen.js

@@ -1,0 +1,25 @@
+// black theme for all parties
+.black {
+  font-family: 'Franklin Gothic Medium', 'Franklin', monotype;
+  .autosuggestion {
+    color:  $form-bg - 333;
+  }
+  main, header.row, footer {
+    background: #777;
+    color: $form-bg;
+
+    .artist-bio {
+      a {
+        color: $form-bg + 111;
+      }
+    }
+
+    li {
+      color: #777;
+    }
+  }
+
+  main {
+    @include vendor (box-shadow, inset 1em $form-bg);
+  }
+}

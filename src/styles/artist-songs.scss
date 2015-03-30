@@ -1,0 +1,79 @@
+// styles for artist's list of songs
+
+.all-songs-list {
+  margin-top: 2em;
+  padding: 0;
+
+  li {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+
+    .thumbnail {
+      border-radius: 0;
+      margin: 0;
+      overflow: hidden;
+      padding: 2%;
+
+      .btn-group {
+        display: block;
+        float: left;
+        margin-right: 5%;
+        overflow: hidden;
+        width: 30%;
+      }
+      a.artist-song {
+        display: block;
+        font-size: 1.5em;
+        float: left;
+        text-decoration: none;
+        width: 65%;
+        word-wrap: break-word;
+        margin-bottom: 1em;
+      }
+      &:hover {
+        background-color: #8699a4;
+        color: #337ab7;
+      }
+      a.artist-song:hover {
+        color: #337ab7;
+      }
+    }
+  }
+}
+
+// query for different screens
+@media (max-width: $xssmall) {
+  .podcast-header {
+    margin: 1em auto;
+    width: 90%;
+  }
+  .all-songs-list {
+    margin-top: 1em;
+    padding: .5em;
+
+    li {
+      padding: 0;
+
+      .thumbnail {
+        a.artist-song, .btn-group {
+          font-size: 1.2em;
+          margin: 0;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media (min-width: $largest) {
+  .all-songs-list {
+    li {
+      .thumbnail {
+        .artist-song {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+}

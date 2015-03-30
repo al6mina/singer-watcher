@@ -1,0 +1,111 @@
+header.row {
+  background-color: $headers-color;
+  border-radius: $border-radius $border-radius 0 0;
+  padding: 1em;
+  position: relative;
+
+  .right {
+    text-align: right;
+  }
+
+  .img-responsive.logo {
+    max-width: 8em;
+  }
+  .nav-head {
+    li {
+      display: inline-block;
+      margin-left: 2.6%;
+
+      a {
+        color: $basic-color;
+        display: block;
+        font-size: 3em;
+        text-decoration: none;
+
+        &:hover {
+          color: $basic-color + 100;
+        }
+      }
+      .language {
+        li {
+          a {
+            font-size: 1em;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .glyphicon {
+      display: inline;
+    }
+
+    .dropdown-menu {
+      left: -70px;
+      margin-right: 3%;
+      min-width: 10em;
+      padding: 1em;
+
+      li{
+        display: block;
+
+        input {
+          margin-right: 1em;
+        }
+      }
+    }
+  }
+  .input-group {
+    font-size: 1em;
+    margin-top: 1.5em;
+  }
+  .autosuggestion {
+    border-radius: 5%;
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+  }
+}
+
+@media (max-width: $xssmall) {
+  header.row {
+    .img-responsive.logo {
+      min-width: 50px;
+      max-width: 100%;
+    }
+    .nav-head {
+      padding: 0;
+      vertical-align: middle;
+
+      li {
+        display: inline-block;
+        max-width: 30%;
+        margin: 1%;
+
+        .language {
+          display: block;
+          overflow: hidden;
+          padding: 0;
+          height: 40px;
+
+          li {
+            text-align: center;
+            max-width: 100%;
+          }
+        }
+        a {
+          font-size: 1.7em;
+        }
+        .dropdown-menu {
+          left : -100px;
+          z-index: 5;
+
+          li {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

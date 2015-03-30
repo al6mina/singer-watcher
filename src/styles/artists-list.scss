@@ -1,0 +1,237 @@
+                                                    // styles for list of artists
+                      //main page
+.podcast {
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+
+  li {
+    .thumbnail {
+      background-color: #444;
+      overflow: hidden;
+      padding: .5em;
+      position: relative;
+      text-align: center;
+
+      a {
+        display: block;
+        font-size: 1em;
+        height: 170px;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-decoration: none;
+
+        img {
+          max-height: 160px;
+        }
+
+        span {
+          background-color: $basic-inverse;
+          border: 2px solid #ddd;
+          bottom: 4px;
+          color: $basic-color;
+          display: none;
+          font-size: 1.4em;
+          padding: 25% 0;
+        }
+      }
+      &:hover {
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.podcast-header {
+  display: block;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+// query for different screens
+@media (max-width: $xssmall) {
+  main.row {
+    padding: .15em;
+  }
+  .podcast {
+    li {
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      .thumbnail {
+        border-radius: 0;
+        margin: 0;
+        padding:0;
+
+        a {
+          display: block;
+          height: 60px;
+          line-height: 70px;
+          overflow: hidden;
+          padding: 0;
+
+          span {
+            background: none;
+            border: none;
+            color: #eee;
+            display: inline;
+            font-size: 1.2em;
+            float: left;
+            position: relative;
+            padding: 0;
+            width: 70%;
+          }
+
+          img {
+            display: block;
+            float: left;
+            height: 60px;
+            margin: auto;
+            position: relative;
+            width: 60px;
+          }
+        }
+      }
+    }
+  }
+                                      // subview, similar artists presentation
+  .subview {
+    padding: 0;
+
+    .podcast {
+      li {
+        .thumbnail {
+          max-height: 70px;
+        }
+      }
+    }
+    span {
+      font-size: 1em;
+    }
+  }
+}
+                                                    // query for different screen
+@media (min-width: $xssmall_begin)and (max-width: $small) {
+  .podcast {
+    text-align: center;
+    li {
+      display: inline-block;
+      padding: 0;
+      width: 30%;
+
+      .thumbnail {
+        margin: .3em;
+
+        a {
+          height: 127px;
+          margin: 0;
+          overflow: hidden;
+          padding: 0;
+          text-align: center;
+          vertical-align: middle;
+
+          img {
+            margin: auto;
+            width: 100%;
+          }
+
+          span {
+            padding-top: 25%;
+          }
+        }
+      }
+    }
+  }
+  .subview {
+    .podcast {
+      li {
+        width: 25%;
+
+        .thumbnail {
+          a {
+            span {
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+@media (max-width: $medium) {
+  .subview {
+    .podcast {
+      li {
+        .thumbnail {
+          height: 130px;
+          padding: .3em;
+
+          a {
+            height: 120px;
+
+            img {
+              max-height: 115px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+@media (min-width: $medium_begin) and(max-width: $largest) {
+  .podcast {
+    li {
+      .thumbnail {
+        height: 176px;
+        padding: .3em;
+      }
+    }
+  }
+  .subview {
+    .podcast {
+      li {
+        .thumbnail {
+          height: 130px;
+          padding: .3em;
+
+          a {
+            height: 120px;
+
+            img {
+              max-height: 115px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: ($largest+1)) {
+  .subview {
+    .podcast {
+      li {
+        min-width: 25%;
+
+        .thumbnail {
+          a {
+            height: 140px;
+
+            img {
+              max-height: 140px;
+            }
+            span {
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

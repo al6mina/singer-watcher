@@ -1,0 +1,59 @@
+footer {
+  background-color: $basic-color;
+  border-radius: 0 0 $border-radius $border-radius;
+  padding-top: 1em;
+  vertical-align: middle;
+
+  .copyright {
+    color: $basic-inverse;
+    font-size: 0.8em;
+    line-height: 45px;
+    text-align: right;
+  }
+
+  .social-container {
+    text-align: left;
+    padding: 0 .5em;
+
+    a {
+      display: inline-block;
+      margin-right: 2.3%;
+      width: 45px;
+    }
+
+    .disabled {
+      opacity: 0.2;
+    }
+
+    span.social {
+      background-image: url($facebook-image);
+      display: block;
+      height: $facebook-height;
+    }
+
+    .fb {
+      background-position: $facebook-offset-x $facebook-offset-y;
+    }
+
+    .twit {
+      background-position: $twitter-offset-x $twitter-offset-y;
+    }
+
+    .github {
+      background-position: $github-offset-x $github-offset-y;
+    }
+  }
+}
+  @media (max-width: $xssmall) {
+  footer {
+    .social-container,  .copyright{
+      text-align: center;
+      width: 100%;
+      display: block;
+      float: none;
+    }
+
+  }
+  }
+
+
