@@ -1,7 +1,8 @@
 node_modules
 .sass-cache
+bower_components
 .idea
 public
-sprite.png
 sprite.scss
+sprite.png
 screen.js

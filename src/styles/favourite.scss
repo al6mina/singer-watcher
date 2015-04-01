@@ -1,0 +1,52 @@
+.favourite-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    overflow: hidden;
+
+    .thumbnail {
+      margin: 0;
+
+      .btn-group {
+        margin-right: 2%;
+      }
+      a {
+        font-size: 1.2em;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.playlist {
+  text-align: right;
+  .wrapper {
+    .preloader {
+      margin-top: 2em;
+      position: relative;
+    }
+  }
+
+  .btn {
+    margin: 1em;
+  }
+}
+
+// query for different screens
+@media (max-width: $small) {
+  .favourite-list {
+    margin-bottom: 2em;
+
+    li {
+      .thumbnail{
+        a {
+          font-size: .7em;
+        }
+        a.artist-song {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}

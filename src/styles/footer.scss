@@ -2,14 +2,18 @@ footer {
   background-color: $basic-color;
   border-radius: 0 0 $border-radius $border-radius;
   padding-top: 1em;
+  vertical-align: middle;
 
   .copyright {
     color: $basic-inverse;
     font-size: 0.8em;
+    line-height: 45px;
+    text-align: right;
   }
 
   .social-container {
-    text-align: right;
+    text-align: left;
+    padding: 0 .5em;
 
     a {
       display: inline-block;
@@ -40,5 +44,16 @@ footer {
     }
   }
 }
+  @media (max-width: $xssmall) {
+  footer {
+    .social-container,  .copyright{
+      text-align: center;
+      width: 100%;
+      display: block;
+      float: none;
+    }
+
+  }
+  }
 
 
