@@ -10,7 +10,7 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter'
     $('body').append(preloader.htmlText);
 
 
-    $scope.item = $stateParams.item;
+    $scope.item =  $stateParams.item;
 
 
     var url = encodeURI(SW.config.BASE_URL + '?method=artist.getinfo&artist=' + $scope.item + SW.config.API_KEY);
@@ -64,6 +64,7 @@ SW.swApp.controller('ShowBioCtrl', ['$scope', '$stateParams', '$http', '$filter'
             });
 
     };
+   
 }]);
 
 

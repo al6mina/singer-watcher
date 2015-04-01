@@ -13,7 +13,7 @@ SW.swApp.config(['$stateProvider', '$urlRouterProvider', '$translateProvider', f
         controller: 'FavouriteListCtrl'
          })
         .state('/item', {
-            url: '/:item',
+            url: decodeURI('/:item'),
             templateUrl: 'js/templates/artistMenu.html',
             controller: 'ShowBioCtrl'
         })
